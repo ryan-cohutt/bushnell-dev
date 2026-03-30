@@ -1,0 +1,97 @@
+:root {
+  --curtain-open-distance: 360px;
+  --transition-speed: 0.7s;
+}
+
+html {
+    background-color: rgb(31, 20, 20);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.stage-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+}
+
+.curtains {
+  position: absolute;
+  height: 57vh;
+  z-index: 1;
+  top: 14vh;
+  justify-self: center;
+
+}
+
+.curtain {
+  position: absolute;
+  height: 100%;
+  transition: transform var(--transition-speed) cubic-bezier(.65,.05,.36,1);
+}
+
+.left {
+  left: 50%;
+  transform: translateX(-100%);
+}
+
+.right {
+  right: 50%;
+  transform: translateX(100%);
+}
+
+.curtains.open .left {
+  transform: translateX(calc(-100% - var(--curtain-open-distance)));
+}
+
+.curtains.open .right {
+  transform: translateX(calc(100% + var(--curtain-open-distance)));
+}
+
+.enter-btn {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 28px;
+  font-size: 18px;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  cursor: pointer;
+}
+
+.enter-btn:hover {
+    background-color: red;
+}
+
+.enter-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.stage-frame {
+  position: absolute;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 3;
+  pointer-events: none;
+  justify-self: center;
+}
+
+.interaction-zone {
+  position: absolute;
+  width: 45vw;
+  height: 57vh;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+

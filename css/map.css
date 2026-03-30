@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: grid;
+}
+
+#bg-img {
+    z-index: -5;
+    width: 100vw;
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f1ea;
+  display: grid;
+  height: 100vh;
+}
+
+.map-wrapper {
+    align-self: center;
+    justify-self: center;
+    position: relative;
+    width: 1200px;
+    margin: 60px auto;
+}
+
+.connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.map {
+  display: grid;
+  grid-template-columns: repeat(9, 120px);
+  grid-auto-rows: 120px;
+  gap: 40px;
+  position: relative;
+}
+
+.node {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.node img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.node.inaccessible {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.card {
+  position: absolute;
+  width: 300px;
+  background: white;
+  border: 2px solid #444;
+  padding: 20px;
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transform: scale(0.8);
+  opacity: 0;
+  transition: 0.2s ease;
+  pointer-events: none;
+}
+
+.card.active {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.card button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+line {
+  stroke: #444;
+  stroke-width: 2;
+}
+
+line.dotted {
+  stroke-dasharray: 6;
+}
+
+line.solid {
+  stroke-dasharray: 0;
+}
