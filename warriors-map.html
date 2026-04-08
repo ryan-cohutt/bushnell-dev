@@ -3,18 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/map.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Capriola&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Salsa&display=swap" rel="stylesheet">
+    <title>Document</title>
 </head>
 <body>
-    <div class="map-wrapper">
+    <!-- <div class="map-wrapper">
         <svg class="connections"></svg>
         <div class="map"></div>
-    </div>
+    </div> -->
 
-    <div class="card" id="card"></div>
+    <!-- <div class="card" id="card"></div> -->
+    <div class="map-cont">
+        <button class="settings">
+            <img src="visuals-updated/settings.png" alt="">
+        </button>
+        <div class="chapter-header">
+            <h1 class="caprasimo">Select Chapter</h1>
+        </div>
+        <div class="chapter-map">
+            <div class="map-row-1">
+                <button class="chapter-btn" id="chapter-1">
+                    <h1 class="salsa">REGRET</h1>
+                    <!-- <img src="visuals-updated/book.png" alt=""> -->
+                </button>
+                <img src="visuals-updated/line-1.png" alt="" class="line-1">
+                <a href="./text-adventure.html"><button class="chapter-btn" id="chapter-2">
+                    <h1 class="salsa">INNOCENCE</h1>
+                    <!-- <img src="visuals-updated/book.png" alt=""> -->
+                </button></a>
+                <img src="visuals-updated/line-2.png" alt="" class="line-1">
+                <button class="chapter-btn" id="chapter-3">
+                    <h1 class="salsa">CHAPTER 3</h1>
+                    <!-- <img src="visuals-updated/book-faded.png" alt=""> -->
+                </button>
+            </div>
+            <div class="map-row-2">
+                <button class="chapter-btn" id="chapter-4">
+                    <h1 class="salsa">CHAPTER 4</h1>
+                    <!-- <img src="visuals-updated/book.png" alt=""> -->
+                </button>
+                <img src="visuals-updated/line-3.png" alt="" class="line-2" id="line-2">
+                <img src="visuals-updated/line-4.png" alt="" class="line-2">
+                <button class="chapter-btn" id="chapter-5">
+                    <h1 class="salsa">CHAPTER 5</h1>
+                    <!-- <img src="visuals-updated/book-faded.png" alt=""> -->
+                </button>
+            </div>
+
+        </div>
+    </div>
     
-    <img src="visuals/school.png" alt="" id="bg-img">
+    <img src="visuals-updated/school-faded.png" alt="" id="bg-img">
     <script src="js/map.js"></script>
 </body>
 </html>

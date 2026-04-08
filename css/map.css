@@ -9,6 +9,7 @@ body {
 
 #bg-img {
     z-index: -5;
+    opacity: 0.55;
     width: 100vw;
     position: absolute;
     justify-self: center;
@@ -18,9 +19,10 @@ body {
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f4f1ea;
+  background: #a78c88;
   display: grid;
   height: 100vh;
+  overflow-y: hidden;
 }
 
 .map-wrapper {
@@ -117,4 +119,108 @@ line.dotted {
 
 line.solid {
   stroke-dasharray: 0;
+}
+
+.map-cont {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-rows: min-content 1fr;
+  row-gap: 100px;
+}
+
+.chapter-header {
+  margin-top: 125px;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  background: #f2e5e1;
+  background: linear-gradient(180deg, rgba(242, 229, 225, 1) 0%, rgba(201, 186, 173, 1) 100%);
+  border: 3px solid #1b1813;
+  display: flex;
+  width: 600px;
+  height: 150px;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    color: #301A1A;
+    font-size: 3.8em;
+    text-align: center;
+  }
+}
+
+.settings {
+  grid-column: 1;
+  grid-row: 1;
+  background: transparent;
+  border: none;
+  width: min-content;
+  align-self: start;
+  justify-self: start;
+  margin: 20px 0 0 20px;
+  img {
+
+  }
+}
+
+.chapter-map {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  justify-self: center;
+  a {
+    text-decoration: none;
+  }
+  .map-row-1 {
+    justify-self: center;
+    display: grid;
+    grid-template-columns: min-content min-content min-content min-content min-content;
+    .line-1 {
+      align-self: center;
+      margin-bottom: 10%;
+    }
+  }
+  .map-row-2 {
+    justify-self: center;
+    display: grid;
+    grid-template-columns: min-content min-content min-content min-content;
+    .line-2 {
+      justify-self: start;
+    }
+    #line-2 {
+      margin-right: 65px;
+    }
+    .chapter-btn {
+      margin-top: 110px;
+    }
+  }
+}
+
+.chapter-btn {
+  display: grid;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  background: url(../visuals-updated/book.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 350px;
+  align-content: start;
+  transition: all .2s ease;
+  h1 {
+    margin-left: 10%;
+    margin-top: 35%;
+    color: #FFAF00;
+    justify-self: center;
+    z-index: 5;
+    font-size: 2.3em;
+    transition: all .15s ease;
+  }
+}
+
+.chapter-btn:hover {
+  h1 {
+    color: white;
+  }
 }

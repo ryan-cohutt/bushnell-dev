@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+    box-sizing: border-box;
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+}
+
+.journal-cont {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 20px 30px;
+}
+
+.settings {
+  background: transparent;
+  border: none;
+  width: min-content;
+  cursor: pointer;
+  img {
+
+  }
+}
+
+.dottie-icon {
+  background: transparent;
+  border: 4px solid black;
+  border-radius: 100px;
+  height: min-content;
+  width: min-content;
+  cursor: pointer;
+  padding: 5px;
+  img {
+    max-width: 80px;
+  }
+}
+.dottie-icon:hover {
+  background-color: #F0E1C3;
+}
+
+.icons {
+  display: grid;
+  grid-template-rows: min-content min-content;
+  row-gap: 10px;
+  height: 100%;
+  justify-items: center;
+  align-items: start;
+}
+
+.journal-pages {
+    /* border: red 2px solid; */
+    margin-left: 13%;
+    width: 76%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .left-page {
+        /* border: blue 2px solid; */
+        display: grid;
+        .dottie {
+            align-self: center;
+            margin-left: 2%;
+            margin-bottom: 2.5%;
+            width: 80%;
+            padding-top: 100px;
+            border: 5px #f1e7d3 solid;
+            display: flex;
+            align-content: end;
+            img {
+                width: 100%;
+                bottom: 0;
+            }
+        }
+    }
+    .right-page {
+        /* border: green 2px solid; */
+        height: 86%;
+        align-self: center;
+        margin-bottom: 7%;
+        display: grid;
+        grid-template-rows: min-content 1fr min-content;
+        .ear-btn {
+            background-color: #FAF4D8;
+            border: 3px solid black;
+            width: 100px;
+            height: 100px;
+            justify-self: center;
+            cursor: pointer;
+            justify-self: start;
+            margin-left: 130px;
+            img {
+                height: 60%;
+            }
+        }
+        .ear-btn:hover {
+            background-color: #ddd5bc;
+        }
+        p {
+            margin-left: 130px;
+            margin-top: 40px;
+            font-size: 1.8em;
+        }
+        .cont-btn {
+            background-color: #FAF4D8;
+            border: 3px solid black;
+            font-size: 2.4em;
+            width: 380px;
+            height: 100px;
+            justify-self: center;
+            cursor: pointer;
+            justify-self: end;
+        }
+        .cont-btn:hover {
+            background-color: #ddd5bc;
+        }
+    }
+}
+
+#bg-img {
+    z-index: -5;
+    width: 100vw;
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+}

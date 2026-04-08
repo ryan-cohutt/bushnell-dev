@@ -3,35 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/playbills.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Capriola&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Salsa&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <button id="nextButton" disabled>
-        Select a playbill
-    </button>
-    
-    <div class="playbill-deck" id="deck">
-        <button class="playbill" data-url="/warriors-map.html">
-            <img src="visuals/playbill-1-cropped.png" alt="Warriors Don't Cry Playbill">
-        </button>
-        <button class="playbill" data-url="/warriors-map.html">
-            <img src="visuals/playbill-2-cropped.png" alt="Warriors Don't Cry Playbill">
-        </button>
-        <button class="playbill" data-url="/warriors-map.html">
-            <img src="visuals/playbill-3-cropped.png" alt="Warriors Don't Cry Playbill">
-        </button>
-        <button class="playbill" data-url="/warriors-map.html">
-            <img src="visuals/playbill-1-cropped.png" alt="Warriors Don't Cry Playbill">
-        </button>
-        <button class="playbill" data-url="/warriors-map.html">
-            <img src="visuals/playbill-2-cropped.png" alt="Warriors Don't Cry Playbill">
-        </button>
-        <button class="playbill" data-url="/warriors-map.html">
-            <img src="visuals/playbill-3-cropped.png" alt="Warriors Don't Cry Playbill">
-        </button>
+    <div class="theatre-experience">
+        <h1 class="selection-title caprasimo">Select Your Story</h1>
+        
+        <div class="carousel-wrapper">
+            <div class="carousel-stage" id="carouselStage"></div>
+        </div>
+
+        <div class="controls">
+            <button id="prevBtn" class="nav-btn">❮</button>
+            <div class="counter-container">
+                <span id="playTitle" class="salsa">LOADING...</span>
+                <span id="counter" class="salsa">0/0</span>
+            </div>
+            <button id="nextBtn" class="nav-btn">❯</button>
+        </div>
     </div>
-    <img src="visuals/table.png" alt="" id="table-bg">
+
+    <div id="modalOverlay" class="modal-overlay hidden">
+        <div class="modal-content" id="modalContent">
+            <div class="modal-left" id="modalImg">
+            </div>
+            <div class="modal-right">
+                <button class="back-arrow" id="closeBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <path d="M23.9981 37.9968L9.99927 23.998M9.99927 23.998L23.9981 9.99915M9.99927 23.998H37.9969" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <p class="meta-data salsa" id="modalMeta"></p>
+                <h2 class="display-title caprasimo" id="modalTitle"></h2>
+                <div class="cast-info salsa">
+                    <p>Cast:</p>
+                    <p><span id="modalCast"></span></p>
+                </div>
+                
+                <p class="description salsa" id="modalDesc"></p>
+                <button class="play-button-final caprasimo">PLAY</button>
+            </div>
+        </div>
+    </div>
     <script src="js/playbills.js"></script>
 </body>
 </html>

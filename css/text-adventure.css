@@ -1,103 +1,169 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
+  box-sizing: border-box;
   width: 100vw;
+  height: 100vh;
 }
 
 body {
+    box-sizing: border-box;
     display: grid;
     height: 100vh;
     width: 100vw;
     margin: 0;
     padding: 0;
     overflow-y: hidden;
-    box-sizing: border-box;
 }
 
-.notebook-cont {
+
+.adventure-cont {
   display: grid;
-  align-items: center;
+  grid-template-columns: min-content 1fr min-content;
+  box-sizing: border-box;
   height: 100vh;
-  width: min-content;
-  position: relative;
-  justify-self: end;
-  rotate: -2deg;
-  bottom: 1%;
+  padding: 20px 30px;
 }
 
-#notebook {
-  display: block;
-  justify-self: center;
-  z-index: -1;
-  height: 100%;
-  width: auto;
-}
-
-.adventure-container {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #ccc;
-  position: absolute;
-  width: auto;
-  height: calc(100% - 15%);
-  top: 8.8%;
-  left: 18%;
-  right: 6%;
-  width: 76%;
-  justify-self: center;
-  align-self: start;
-  overflow-y: auto;
-  z-index: 4;
-}
-
-.chat-log {
-  flex: 1;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-  font-size: 25px;
-}
-
-/* shared bubble styles */
-.message {
-  max-width: 70%;
-  line-height: 1.2;
-}
-
-/* user on right */
-.message.user {
-  align-self: flex-end;
-}
-
-/* ai on left */
-.message.ai {
-  align-self: flex-start;
-}
-
-/* input area */
-.chat-input {
-  display: flex;
-  border-top: 1px solid #ccc;
-  padding-bottom: 100px;
-}
-
-.chat-input input {
-  flex: 1;
-  padding: 12px;
-  font-size: 1rem;
+.settings {
+  background: transparent;
   border: none;
-  outline: none;
+  width: min-content;
+  cursor: pointer;
+  img {
+
+  }
 }
 
-.chat-input button {
-  padding: 0 18px;
-  font-size: 1rem;
+.dottie-icon {
+  background: transparent;
+  border: 4px solid black;
+  border-radius: 100px;
+  height: min-content;
+  width: min-content;
   cursor: pointer;
+  padding: 5px;
+  img {
+    max-width: 80px;
+  }
+}
+.dottie-icon:hover {
+  background-color: #F0E1C3;
+}
+
+.icons {
+  display: grid;
+  grid-template-rows: min-content min-content;
+  row-gap: 10px;
+  height: 100%;
+  justify-items: center;
+  align-items: start;
+}
+
+.options {
+  display: grid;
+  align-self: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content min-content min-content;
+  row-gap: 50px;
+  padding: 80px 140px;
+  .text-option {
+    background-color: #F0E1C3;
+    border: black solid 3px;
+    width: min-content;
+    height: min-content;
+    padding: 75px 110px;
+    text-wrap: nowrap;
+    cursor: pointer;
+  }
+  .text-option:hover {
+    background-color: #ddd5bc;
+  }
+  .text-option.selected {
+    background-color: #9fc06b;
+  }
+  #option-1 {
+    grid-row: 1;
+    grid-column: 2;
+    justify-self: center;
+  }
+  #option-2 {
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: end;
+  }
+  #option-3 {
+    grid-row: 2;
+    grid-column: 2;
+    margin-top: 150px;
+    justify-self: end;
+  }
+  #option-4 {
+    grid-row: 3;
+    grid-column: 1;
+  }
+  #option-5 {
+    grid-row: 3;
+    grid-column: 2;
+    margin-top: 150px;
+    justify-self: start;
+  }
+}
+
+.notebook {
+  box-sizing: border-box;
+  height: 100%;
+  display: grid;
+  .notebook-div {
+    justify-self: end;
+    margin-right: 5%;
+    margin-top: 5%;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 10;
+    width: 75%;
+    height: 82%;
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    .back-btn {
+      justify-self: end;
+      width: auto;
+      background-color: transparent;
+      border: none;
+      margin-right: 15px;
+      height: 50px;
+      cursor: pointer;
+    }
+    p {
+      margin-top: 40px;
+      height: 100%;
+      font-size: 1.8em;
+      line-height: 2.5em;
+    }
+    .next-btn {
+      background-color: #FAF4D8;
+      border: 3px solid black;
+      font-size: 2.4em;
+      width: 380px;
+      height: 100px;
+      justify-self: center;
+      cursor: pointer;
+    }
+    .next-btn:hover {
+      background-color: #ddd5bc;
+    }
+  }
+  img {
+    grid-column: 1;
+    grid-row: 1;
+    display: block;
+    height: 100%;
+    z-index: -4;
+  }
 }
 
 #bg-img {
@@ -106,11 +172,4 @@ body {
     position: absolute;
     justify-self: center;
     align-self: center;
-}
-
-#back-btn {
-  width: 100px;
-  height: 40px;
-  margin: 50px;
-  font-size: 20px;
 }
