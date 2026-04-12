@@ -11,23 +11,85 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="settings-panel" class="settings-overlay">
+        <div class="content">
+            <h1 class="caprasimo">Settings</h1>
+            <div class="settings-tabs">
+                <div class="tab">
+                    <p class="salsa">Language</p>
+                    <button class="salsa">English</button>
+                </div>
+                <div class="tab">
+                    <p class="salsa">Visuals</p>
+                    <button class="salsa">Low Motion</button>
+                    <button class="salsa">High Contrast</button>
+                </div>
+                <div class="tab">
+                    <p class="salsa">Audio</p>
+                    <button class="salsa">Prefer Text to Speech</button>
+                    <button class="salsa">Prefer Text Only</button>
+                </div>
+                <div class="tab">
+                    <p class="salsa">Text</p>
+                    <button class="salsa">Text Speed  -  1  +</button>
+                    <button class="salsa">Font Size  -  1  +</button>
+                </div>
+            </div>
+            <button id="save-settings" class="caprasimo">SAVE</button>
+        </div>
+    </div>
     <div class="stage-container">
         <div class="curtains" id="curtains">
             <!-- <img src="visuals/curtain.png" class="curtain left" />
             <img src="visuals/curtain.png" class="curtain right" /> -->
         </div>
         <div class="interaction-zone" id="interactionZone">
-            <a href="/playbills.html"><button class="enter-btn" id="enterBtn">
+            <!-- <a href="/playbills.html"><button class="enter-btn" id="enterBtn">
                 Enter
-            </button></a>
+            </button></a> -->
+            <p class="salsa intro-text" id="intro-1">Welcome to The Bushnell Center for the Performing Arts.</p>
+            <p class="salsa intro-text" id="intro-2">My name is Horace B, your host for the day.</p>
+            <p class="salsa intro-text" id="intro-3">Let’s get you started. First, select your preferred language for your story.</p>
+            <p class="salsa intro-text" id="intro-4">You’re all set! Time to pick your story.</p>
+            <a href="playbills.html" id="continue-btn"><button class="caprasimo">CONTINUE</button></a>
+            <div class="options-card" id="options-card">
+                <div id="options-1" class="option-page active">
+                    <p class="salsa">Language</p>
+                    <button class="salsa option-btn">English</button>
+                    <button class="salsa disabled">Spanish</button>
+                </div>
+                <div id="options-2" class="option-page">
+                    <p class="salsa">Audio</p>
+                    <button class="salsa option-btn">English</button>
+                    <button class="salsa disabled">Spanish</button>
+                </div>
+                <div id="options-3" class="option-page">
+                    <p class="salsa">Visual</p>
+                    <button class="salsa option-btn">English</button>
+                    <button class="salsa disabled">Spanish</button>
+                </div>
+                <div id="options-4" class="option-page">
+                    <p class="salsa">Text</p>
+                    <button class="salsa option-btn">English</button>
+                    <button class="salsa disabled">Spanish</button>
+                </div>
+                <button class="caprasimo" id="next-btn">NEXT</button>
+            </div>
         </div>
         <div class="horace-cont">
-            <img src="characters/horace-1.png" alt="">
+            <img src="characters/horace-2.png" alt="" id="horace-1">
+            <img src="characters/horace-1.png" alt="" id="horace-2">
+            <img src="characters/horace-6.png" alt="" id="horace-3">
+            <img src="characters/horace-3.png" alt="" id="horace-4">
         </div>
         <div class="rope-cont">
-            <img src="visuals-updated/rope.png" alt="">
+            <button id="rope-btn">
+                <img src="visuals-updated/rope-1.png" alt="" id="rope1">
+                <img src="visuals-updated/rope-select-1.png" alt="" id="rope2">
+            </button>
         </div>
-        <img src="visuals-updated/stage.png" class="stage-frame" alt="Stage Frame" />
+        <img src="visuals-updated/stage-resized.png" class="stage-frame" id="stage-1" alt="Stage Frame" />
+        <img src="visuals-updated/stage-zoomed.png" class="stage-frame" id="stage-2" alt="Stage Frame" />
     </div>
 
     <script src="js/stage.js"></script>
