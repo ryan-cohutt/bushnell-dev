@@ -6,30 +6,45 @@ const output = document.getElementById('output');
 const input = document.getElementById('user-input');
 const btn = document.getElementById('send-btn');
 
+function appendMessage(role, text) {
+  const output = document.getElementById('output');
+  
+  // 1. Create the row
+  const row = document.createElement('div');
+  row.classList.add('message-row', role === 'user' ? 'user-row' : 'ai-row');
+
+  // 2. Create the bubble
+  const bubble = document.createElement('div');
+  bubble.classList.add('bubble', role === 'user' ? 'user-bubble' : 'ai-bubble');
+  bubble.textContent = text;
+
+  // 3. Put it together
+  row.appendChild(bubble);
+  output.appendChild(row);
+
+  // 4. Auto-scroll to bottom
+  output.scrollTop = output.scrollHeight;
+}
+
+// How to use it in your click listener:
 btn.addEventListener('click', async () => {
   const userText = input.value;
   if (!userText) return;
 
-  // 1. Save user message to memory
+  // Show user message immediately
+  appendMessage('user', userText);
   conversationHistory.push({ role: "user", content: userText });
-  
-  output.innerHTML += `<p><strong>You:</strong> ${userText}</p>`;
   input.value = '';
 
-  // 2. Send the FULL history to your Vercel API
   const response = await fetch('/api/chat', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ messages: conversationHistory }) // Note: sending the array now
+    body: JSON.stringify({ messages: conversationHistory })
   });
 
   const data = await response.json();
   
-  // 3. Save AI response to memory
+  // Show AI message
+  appendMessage('ai', data.reply);
   conversationHistory.push({ role: "assistant", content: data.reply });
-  
-  output.innerHTML += `<p><strong>AI:</strong> ${data.reply}</p>`;
-  
-  // Scroll to bottom
-  output.scrollTop = output.scrollHeight;
 });
