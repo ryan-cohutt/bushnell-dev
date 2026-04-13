@@ -48,3 +48,29 @@ btn.addEventListener('click', async () => {
   appendMessage('ai', data.reply);
   conversationHistory.push({ role: "assistant", content: data.reply });
 });
+
+input.addEventListener('keydown', async (e) => {
+  // Check if the key pressed is 'Enter'
+  if (e.key === 'Enter') {
+    e.preventDefault(); // Stop any default browser weirdness
+    
+    const userText = input.value.trim();
+    if (!userText) return; // Don't send empty messages
+
+    // Trigger your existing logic
+    appendMessage('user', userText);
+    conversationHistory.push({ role: "user", content: userText });
+    input.value = '';
+
+    // Call your Vercel API
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: conversationHistory })
+    });
+
+    const data = await response.json();
+    appendMessage('ai', data.reply);
+    conversationHistory.push({ role: "assistant", content: data.reply });
+  }
+});
