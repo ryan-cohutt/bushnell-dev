@@ -131,7 +131,7 @@ body {
                 overflow-y: scroll;
                 padding: 20px;
                 border-radius: 8px;
-                height: 900px;
+                height: 800px;
                 font-size: 0.9em;
             }
             .message-row {
