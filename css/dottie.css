@@ -79,11 +79,32 @@ body {
             width: 80%;
             padding-top: 100px;
             border: 5px #f1e7d3 solid;
-            display: flex;
+            display: grid;
             align-content: end;
+            .dottie-layer {
+                grid-area: 1 / 1;
+                width: 100%;
+                height: auto;
+                opacity: 0;
+            }
+            .dottie-layer.active {
+                opacity: 1;
+            }
             img {
                 width: 100%;
                 bottom: 0;
+            }
+            #thinking-state {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                z-index: 10;
+            }
+            #thinking-state.active {
+                opacity: 1;
             }
         }
     }

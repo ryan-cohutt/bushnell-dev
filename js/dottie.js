@@ -6,6 +6,128 @@ const output = document.getElementById('output');
 const input = document.getElementById('user-input');
 const btn = document.getElementById('send-btn');
 
+
+function preloadImages(imageUrls) {
+  imageUrls.forEach(url => {
+    const img = new Image();
+    img.src = url;
+  });
+}
+
+const imagePaths = [
+  './dottie/Dot_Body.png', './dottie/Dot_Brows_Happy.png', './dottie/Dot_Brows_Neutral.png',
+  './dottie/Dot_Brows_Sad.png', './dottie/Dot_Eyes_Closed.png', './dottie/Eyes_HalfClosed.png',
+  './dottie/Dot_Eyes_Open.png', './dottie/Dot_Head.png', './dottie/Dot_Mouth_Closed.png',
+  './dottie/Dot_Mouth_Frown.png', './dottie/Dot_Mouth_HalfOpen.png', './dottie/Dot_Mouth_Open.png',
+  './dottie/Dot_Thinking.png', './dottie/Glasses.png'
+];
+
+preloadImages(imagePaths);
+
+const characterLayers = {
+  mouths: ['#mouth-closed', '#mouth-half-open', '#mouth-open'],
+  eyes: ['#eyes-closed', '#eyes-half-closed', '#eyes-open']
+};
+
+let talkInterval = null;
+let blinkInterval = null;
+
+function setLayer(selector, isActive) {
+  document.querySelector(selector).classList.toggle('active', isActive);
+}
+
+function setFacialExpression(expression) {
+  Object.values(characterLayers).flat().forEach(l => setLayer(l, false));
+
+  if (expression === 'neutral') {
+    setLayer('#brows-neutral', true);
+    setLayer('#eyes-open', true);
+    setLayer('#mouth-closed', true);
+  }
+}
+
+function startBlinking() {
+  if (blinkInterval) return;
+
+  blinkInterval = setInterval(() => {
+    setLayer('#eyes-open', false);
+    setLayer('#eyes-half-closed', true);
+    
+    setTimeout(() => {
+      setLayer('#eyes-half-closed', false);
+      setLayer('#eyes-closed', true);
+    }, 50);
+
+    setTimeout(() => {
+      setLayer('#eyes-closed', false);
+      setLayer('#eyes-half-closed', true);
+    }, 100);
+
+    setTimeout(() => {
+      setLayer('#eyes-half-closed', false);
+      setLayer('#eyes-open', true);
+    }, 150);
+
+  }, 4000);
+}
+
+async function animateTextAndTalk(text, targetElement, speed = 40) {
+  targetElement.textContent = '';
+
+  let mouthIndex = 0;
+  talkInterval = setInterval(() => {
+
+    characterLayers.mouths.forEach(m => setLayer(m, false));
+
+    setLayer(characterLayers.mouths[mouthIndex], true);
+
+    mouthIndex = (mouthIndex + 1) % characterLayers.mouths.length;
+  }, speed * 2);
+
+  for (let i = 0; i < text.length; i++) {
+    targetElement.textContent += text[i];
+    await new Promise(r => setTimeout(r, speed));
+  }
+
+  clearInterval(talkInterval);
+  setFacialExpression('neutral');
+}
+
+setLayer('#body', true);
+setLayer('#head', true);
+setFacialExpression('neutral');
+startBlinking();
+
+
+input.addEventListener('keydown', async (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    const userText = input.value;
+    // ... send message ...
+
+    // 1. Enter "Thinking" State
+    setLayer('#thinking-state', true);
+    clearInterval(blinkInterval); // Stop blinking while thinking
+    
+    const response = await fetch('/api/chat', { /* ... */ });
+    const data = await response.json();
+
+    // 2. Response Start: Transition to Talking
+    setLayer('#thinking-state', false); // Turn off thinking
+    setFacialExpression('neutral'); // Reset mouth/eyes
+    startBlinking(); // Resume blinking while talking
+
+    // Create the AI bubble container (we need a reference to where the text goes)
+    const aiBubble = appendMessage('ai', '');
+    
+    // 3. Start Scrolling and Talking
+    await animateTextAndTalk(data.reply, aiBubble.querySelector('.bubble'));
+    
+    conversationHistory.push({ role: "assistant", content: data.reply });
+  }
+});
+
+
 function appendMessage(role, text) {
   const output = document.getElementById('output');
   
@@ -74,3 +196,5 @@ input.addEventListener('keydown', async (e) => {
     conversationHistory.push({ role: "assistant", content: data.reply });
   }
 });
+
+
