@@ -37,7 +37,13 @@ function setLayer(selector, isActive) {
 }
 
 function setFacialExpression(expression) {
-  Object.values(characterLayers).flat().forEach(l => setLayer(l, false));
+  // Hide all dynamic parts (Brows, Eyes, Mouths)
+  const allParts = [...characterLayers.mouths, ...characterLayers.eyes, '#brows-neutral', '#brows-happy', '#brows-sad', '#mouth-frown'];
+  
+  allParts.forEach(selector => {
+    const el = document.querySelector(selector);
+    if (el) el.classList.remove('active');
+  });
 
   if (expression === 'neutral') {
     setLayer('#brows-neutral', true);
@@ -45,6 +51,8 @@ function setFacialExpression(expression) {
     setLayer('#mouth-closed', true);
   }
 }
+
+
 
 function startBlinking() {
   if (blinkInterval) return;
@@ -99,31 +107,36 @@ setFacialExpression('neutral');
 startBlinking();
 
 
+function clearAllLayers() {
+  const allLayers = document.querySelectorAll('.dottie-layer');
+  allLayers.forEach(layer => layer.classList.remove('active'));
+}
+
 input.addEventListener('keydown', async (e) => {
   if (e.key === 'Enter') {
     e.preventDefault();
-    const userText = input.value;
-    // ... send message ...
+    const userText = input.value.trim();
+    if (!userText) return;
 
-    // 1. Enter "Thinking" State
-    setLayer('#thinking-state', true);
-    clearInterval(blinkInterval); // Stop blinking while thinking
+    clearInterval(blinkInterval);
+    clearInterval(talkInterval);
     
-    const response = await fetch('/api/chat', { /* ... */ });
+    clearAllLayers();
+    document.querySelector('#thinking-state').classList.add('active');
+
+    const response = await fetch('/api/chat', { /*...*/ });
     const data = await response.json();
 
-    // 2. Response Start: Transition to Talking
-    setLayer('#thinking-state', false); // Turn off thinking
-    setFacialExpression('neutral'); // Reset mouth/eyes
-    startBlinking(); // Resume blinking while talking
+    clearAllLayers();
+    
+    document.querySelector('#body').classList.add('active');
+    document.querySelector('#head').classList.add('active');
+    
+    setFacialExpression('neutral'); 
+    startBlinking();
 
-    // Create the AI bubble container (we need a reference to where the text goes)
     const aiBubble = appendMessage('ai', '');
-    
-    // 3. Start Scrolling and Talking
     await animateTextAndTalk(data.reply, aiBubble.querySelector('.bubble'));
-    
-    conversationHistory.push({ role: "assistant", content: data.reply });
   }
 });
 
