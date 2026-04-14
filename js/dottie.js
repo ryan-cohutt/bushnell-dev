@@ -16,7 +16,7 @@ function preloadImages(imageUrls) {
 
 const imagePaths = [
   './dottie/Dot_Body.png', './dottie/Dot_Brows_Happy.png', './dottie/Dot_Brows_Neutral.png',
-  './dottie/Dot_Brows_Sad.png', './dottie/Dot_Eyes_Closed.png', './dottie/Eyes_HalfClosed.png',
+  './dottie/Dot_Brows_Sad.png', './dottie/Dot_Eyes_Closed.png', './dottie/Dot_Eyes_HalfClosed.png',
   './dottie/Dot_Eyes_Open.png', './dottie/Dot_Head.png', './dottie/Dot_Mouth_Closed.png',
   './dottie/Dot_Mouth_Frown.png', './dottie/Dot_Mouth_HalfOpen.png', './dottie/Dot_Mouth_Open.png',
   './dottie/Dot_Thinking.png', './dottie/Glasses.png'
@@ -112,35 +112,6 @@ function clearAllLayers() {
   allLayers.forEach(layer => layer.classList.remove('active'));
 }
 
-input.addEventListener('keydown', async (e) => {
-  if (e.key === 'Enter') {
-    e.preventDefault();
-    const userText = input.value.trim();
-    if (!userText) return;
-
-    clearInterval(blinkInterval);
-    clearInterval(talkInterval);
-    
-    clearAllLayers();
-    document.querySelector('#thinking-state').classList.add('active');
-
-    const response = await fetch('/api/chat', { /*...*/ });
-    const data = await response.json();
-
-    clearAllLayers();
-    
-    document.querySelector('#body').classList.add('active');
-    document.querySelector('#head').classList.add('active');
-    
-    setFacialExpression('neutral'); 
-    startBlinking();
-
-    const aiBubble = appendMessage('ai', '');
-    await animateTextAndTalk(data.reply, aiBubble.querySelector('.bubble'));
-  }
-});
-
-
 function appendMessage(role, text) {
   const output = document.getElementById('output');
   
@@ -150,6 +121,7 @@ function appendMessage(role, text) {
 
   // 2. Create the bubble
   const bubble = document.createElement('div');
+  // Use unique classes for AI vs User so the script can find them to animate
   bubble.classList.add('bubble', role === 'user' ? 'user-bubble' : 'ai-bubble');
   bubble.textContent = text;
 
@@ -159,55 +131,78 @@ function appendMessage(role, text) {
 
   // 4. Auto-scroll to bottom
   output.scrollTop = output.scrollHeight;
+  return bubble; // Add this line!
 }
 
-// How to use it in your click listener:
-btn.addEventListener('click', async () => {
-  const userText = input.value;
+// --- UNIFIED SEND LOGIC ---
+async function handleSend() {
+  const userText = input.value.trim();
   if (!userText) return;
 
-  // Show user message immediately
+  // 1. Show user message immediately & clear input
   appendMessage('user', userText);
   conversationHistory.push({ role: "user", content: userText });
   input.value = '';
 
-  const response = await fetch('/api/chat', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ messages: conversationHistory })
-  });
-
-  const data = await response.json();
+  // 2. STOP BLINKING & SHOW THINKING STATE
+  clearInterval(blinkInterval);
+  blinkInterval = null; // Reset so it can be restarted
+  clearInterval(talkInterval);
   
-  // Show AI message
-  appendMessage('ai', data.reply);
-  conversationHistory.push({ role: "assistant", content: data.reply });
-});
+  clearAllLayers();
+  document.querySelector('#thinking-state').classList.add('active');
 
-input.addEventListener('keydown', async (e) => {
-  // Check if the key pressed is 'Enter'
-  if (e.key === 'Enter') {
-    e.preventDefault(); // Stop any default browser weirdness
-    
-    const userText = input.value.trim();
-    if (!userText) return; // Don't send empty messages
-
-    // Trigger your existing logic
-    appendMessage('user', userText);
-    conversationHistory.push({ role: "user", content: userText });
-    input.value = '';
-
-    // Call your Vercel API
+  try {
+    // 3. CALL THE API
     const response = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ messages: conversationHistory })
     });
 
+    if (!response.ok) throw new Error("API Issue");
     const data = await response.json();
-    appendMessage('ai', data.reply);
+
+    // 4. HIDE THINKING & RESTORE CHARACTER
+    clearAllLayers();
+    document.querySelector('#body').classList.add('active');
+    document.querySelector('#head').classList.add('active');
+    document.querySelector('#glasses').classList.add('active'); // Added your glasses back!
+    
+    setFacialExpression('neutral'); 
+    startBlinking(); // Resume blinking for the response
+
+    // 5. ANIMATE TEXT AND MOUTH SYNC
+    // We get the bubble directly from the function now
+    const latestBubble = appendMessage('ai', '');
+    
+    // Run the typewriter and mouth animation
+    await animateTextAndTalk(data.reply, latestBubble);
+
+    // 6. SAVE TO HISTORY
     conversationHistory.push({ role: "assistant", content: data.reply });
+
+  } catch (error) {
+    console.error("Error:", error);
+    clearAllLayers();
+    document.querySelector('#body').classList.add('active');
+    document.querySelector('#head').classList.add('active');
+    setFacialExpression('neutral');
+    startBlinking();
+    appendMessage('ai', "I'm sorry, sugar, I'm having a hard time hearing you right now.");
+  }
+}
+
+
+// Handle Enter Key
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    handleSend();
   }
 });
 
-
+// Handle Button Click
+btn.addEventListener('click', () => {
+  handleSend();
+});
