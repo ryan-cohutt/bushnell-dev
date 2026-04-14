@@ -1,6 +1,6 @@
 :root {
     --bg-red: #8b2626;
-    --paper: #f2c994;
+    --paper: #F1E7D3;
     --theatre-blue: #7fb3d5;
 }
 
@@ -18,7 +18,7 @@ body, html {
     height: 100vh;
 }
 
-.selection-title { color: white; font-size: 4.5em; margin-bottom: 20px; }
+.selection-title { color: #F1E7D3; font-size: 4.5em; margin-bottom: 20px; }
 
 .carousel-wrapper {
     position: relative; width: 100%; height: 450px;
@@ -52,16 +52,16 @@ body, html {
         justify-content: center;
         font-size: 4em;
         padding: 30px 0;
-        color: #6B1C1C;
-        border: 3px #6B1C1C solid;
+        color: #63513D;
+        border: 3px #63513D solid;
     }
     .playbill-spacer {
-        border-left: 3px #6B1C1C solid;
-        border-right: 3px #6B1C1C solid;
+        border-left: 3px #63513D solid;
+        border-right: 3px #63513D solid;
         height: 20px;
     }
     .playbill-img {
-        border: 3px #6B1C1C solid;
+        border: 3px #63513D solid;
         height: auto;
         img {
             width: 100%;
@@ -84,18 +84,18 @@ body, html {
 
 .modal-content {
     background-color: var(--paper);
-    width: 900px; height: auto;
+    width: 1200px; height: auto;
     display: grid; position: relative;
     grid-template-columns: 1fr 1fr;
     transform: scale(0.9);
-    border: 3px #6B1C1C solid;
+    border: 6px #F1E7D3 solid;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .modal-overlay.active .modal-content { transform: scale(1); }
 
 .modal-left { 
-    border-right: 3px #6B1C1C solid; 
+    border-right: 3px #F1E7D3 solid; 
 }
 
 .modal-right { 
@@ -130,27 +130,30 @@ body, html {
 
 .meta-data {
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1.5em;
 }
 
 .display-title {
     text-align: center;
     color: #6B1C1C;
-    font-size: 3em;
+    font-size: 4em;
 }
 
 .cast-info {
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1.5em;
     p {
         margin: 0;
     }
 }
 
-.decription {
-    font-size: 1.1em;
+.description {
+    font-size: 1.2em;
 }
 
-.play-button {
+.play-button-final {
     font-size: 1.5em;
+    background-color: #046A38;
+    color: white;
+    font-weight: 100;
 }

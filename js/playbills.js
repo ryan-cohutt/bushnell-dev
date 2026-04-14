@@ -25,7 +25,7 @@ function init() {
         const card = document.createElement('div');
         card.className = 'playbill';
         card.innerHTML = `
-            <div class="playbill-header caprasimo">PLAYBILL</div>
+            <div class="playbill-header caprasimo">PROMPTER</div>
             <div class="playbill-spacer"></div>
             <div class="playbill-img">
                 <img src="${play.img}" alt="">
