@@ -16,24 +16,30 @@ body, html {
     display: grid;
     align-items: center; justify-content: center;
     height: 100vh;
+    padding: 20px;
 }
 
-.selection-title { color: white; font-size: 4.5em; margin-bottom: 20px; }
+.selection-title { 
+    color: white; 
+    font-size: clamp(2em, 5vw, 4.5em); 
+    margin-bottom: clamp(10px, 2vh, 20px);
+    text-align: center;
+}
 
 .carousel-wrapper {
-    position: relative; width: 100%; height: 450px;
+    position: relative; width: 100%; height: clamp(280px, 45vh, 450px);
     display: flex; justify-content: center; 
     perspective: 2000px; /* Increased for wider spread */
 }
 
-.carousel-stage { position: relative; width: 260px; height: 380px; }
+.carousel-stage { position: relative; width: clamp(180px, 20vw, 260px); height: clamp(250px, 40vh, 380px); }
 
 .playbill {
-    position: absolute; width: 460px; height: auto;
+    position: absolute; width: clamp(280px, 30vw, 460px); height: auto;
     left: -38%;
     top: -35%;
     background-color: var(--paper);
-    border: 20px solid var(--paper);
+    border: clamp(10px, 1.5vw, 20px) solid var(--paper);
     box-sizing: border-box;
     -webkit-box-shadow: -21px 31px 0px 5px rgba(0,0,0,0.4);
     -moz-box-shadow: -21px 31px 0px 5px rgba(0,0,0,0.4);
@@ -46,22 +52,22 @@ body, html {
                 opacity 0.5s ease;
     will-change: transform, opacity;
     .playbill-header {
-        height: 60px;
+        height: clamp(40px, 6vh, 60px);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 4em;
-        padding: 30px 0;
+        font-size: clamp(2em, 3.5vw, 4em);
+        padding: clamp(15px, 2.5vh, 30px) 0;
         color: #6B1C1C;
-        border: 3px #6B1C1C solid;
+        border: clamp(2px, 0.3vw, 3px) #6B1C1C solid;
     }
     .playbill-spacer {
-        border-left: 3px #6B1C1C solid;
-        border-right: 3px #6B1C1C solid;
-        height: 20px;
+        border-left: clamp(2px, 0.3vw, 3px) #6B1C1C solid;
+        border-right: clamp(2px, 0.3vw, 3px) #6B1C1C solid;
+        height: clamp(10px, 1.5vh, 20px);
     }
     .playbill-img {
-        border: 3px #6B1C1C solid;
+        border: clamp(2px, 0.3vw, 3px) #6B1C1C solid;
         height: auto;
         img {
             width: 100%;
@@ -78,13 +84,17 @@ body, html {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.4s ease, visibility 0.4s ease;
+    padding: 20px;
+    overflow-y: auto;
 }
 
 .modal-overlay.active { opacity: 1; visibility: visible; }
 
 .modal-content {
     background-color: var(--paper);
-    width: 900px; height: auto;
+    width: min(900px, 95vw); 
+    max-height: 90vh;
+    overflow-y: auto;
     display: grid; position: relative;
     grid-template-columns: 1fr 1fr;
     transform: scale(0.9);
@@ -100,18 +110,44 @@ body, html {
 
 .modal-right { 
     display: grid;
-    padding: 40px;
-    display: grid;
+    padding: clamp(15px, 3vw, 40px);
     color: #222;
 }
-.play-button-final { margin-top: auto; padding: 15px; border: 2px solid #222; background: none; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+.play-button-final { 
+    margin-top: auto; 
+    padding: clamp(10px, 1.5vh, 15px); 
+    border: 2px solid #222; 
+    background: none; 
+    font-weight: bold; 
+    cursor: pointer; 
+    font-size: clamp(0.9rem, 1vw, 1.1rem); 
+}
 
 /* Controls */
-.controls { display: flex; align-items: center; justify-content: center; gap: 50px; margin-top: 60px; color: white; }
-.nav-btn { background: none; border: none; color: white; font-size: 4rem; cursor: pointer; transition: transform 0.2s; }
+.controls { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: clamp(20px, 4vw, 50px); 
+    margin-top: clamp(20px, 5vh, 60px); 
+    color: white; 
+}
+.nav-btn { 
+    background: none; 
+    border: none; 
+    color: white; 
+    font-size: clamp(2rem, 4vw, 4rem); 
+    cursor: pointer; 
+    transition: transform 0.2s; 
+}
 .nav-btn:hover { transform: scale(1.2); }
-#playTitle { display: block; text-align: center; min-width: 300px; font-size: 2em; }
-#counter {font-size: 1.8em;}
+#playTitle { 
+    display: block; 
+    text-align: center; 
+    min-width: clamp(150px, 25vw, 300px); 
+    font-size: clamp(1.2em, 2vw, 2em); 
+}
+#counter { font-size: clamp(1.2em, 1.8vw, 1.8em); }
 .counter-container { display: flex; align-items: center; flex-direction: column; }
 
 .playbill-popup-img {
@@ -124,33 +160,122 @@ body, html {
     border: none;
     cursor: pointer;
     svg {
-        width: 40px;
+        width: clamp(28px, 4vw, 40px);
     }
 }
 
 .meta-data {
     text-align: center;
-    font-size: 1.1em;
+    font-size: clamp(0.9em, 1vw, 1.1em);
 }
 
 .display-title {
     text-align: center;
     color: #6B1C1C;
-    font-size: 3em;
+    font-size: clamp(1.5em, 3vw, 3em);
 }
 
 .cast-info {
     text-align: center;
-    font-size: 1.1em;
+    font-size: clamp(0.9em, 1vw, 1.1em);
     p {
         margin: 0;
     }
 }
 
-.decription {
-    font-size: 1.1em;
+.description {
+    font-size: clamp(0.9em, 1vw, 1.1em);
 }
 
 .play-button {
-    font-size: 1.5em;
+    font-size: clamp(1.1em, 1.5vw, 1.5em);
+}
+
+/* Chromebook and small screens */
+@media (max-height: 800px) {
+    .carousel-wrapper {
+        height: clamp(220px, 40vh, 350px);
+    }
+    .carousel-stage {
+        width: clamp(150px, 18vw, 220px);
+        height: clamp(200px, 35vh, 300px);
+    }
+    .playbill {
+        width: clamp(220px, 28vw, 360px);
+        .playbill-header {
+            height: clamp(30px, 5vh, 50px);
+            font-size: clamp(1.5em, 3vw, 3em);
+            padding: clamp(10px, 2vh, 20px) 0;
+        }
+    }
+    .controls {
+        margin-top: clamp(15px, 4vh, 40px);
+    }
+}
+
+/* Tablet and smaller laptops */
+@media (max-width: 900px) {
+    .modal-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        max-height: 85vh;
+    }
+    .modal-left {
+        border-right: none;
+        border-bottom: 3px #6B1C1C solid;
+        max-height: 40vh;
+        overflow: hidden;
+    }
+    .modal-left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .modal-right {
+        padding: 20px;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+    .theatre-experience {
+        padding: 15px;
+    }
+    .selection-title {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+    .carousel-wrapper {
+        height: 250px;
+    }
+    .carousel-stage {
+        width: 140px;
+        height: 200px;
+    }
+    .playbill {
+        width: 200px;
+        border-width: 8px;
+        .playbill-header {
+            font-size: 1.4em;
+            height: 30px;
+            padding: 10px 0;
+        }
+        .playbill-spacer {
+            height: 8px;
+        }
+    }
+    .controls {
+        gap: 15px;
+        margin-top: 15px;
+    }
+    .nav-btn {
+        font-size: 1.8rem;
+    }
+    #playTitle {
+        min-width: 120px;
+        font-size: 1em;
+    }
+    #counter {
+        font-size: 1em;
+    }
 }

@@ -99,8 +99,8 @@ html {
     z-index: 10;
     color: white;
     text-align: center;
-    font-size: 1.4em;
-    padding-top: 30px;
+    font-size: clamp(0.9em, 1.2vw, 1.4em);
+    padding-top: 20px;
     opacity: 0;
     transition: 1.5s ease all;
   }
@@ -112,47 +112,49 @@ html {
     opacity: 0;
     text-decoration: none;
     justify-self: center;
-    padding-top: 20px;
+    padding-top: 15px;
     button {
       background: #046A38;
       border: #030300 1.5px solid;
-      font-size: 1.1em;
+      font-size: clamp(0.9em, 1vw, 1.1em);
       color: white;
-      padding: 12px 80px;
+      padding: 10px 60px;
       cursor: pointer;
     }
   }
   .options-card {
-    margin-top: 50px;
+    margin-top: 30px;
     justify-self: end;
-    margin-right: 28px;
+    margin-right: 20px;
     background-color: #F1E7D3;
-    width: 430px;
-    height: 240px;
+    width: min(430px, 90%);
+    height: auto;
+    min-height: 180px;
+    padding: 20px 15px;
     display: none;
     opacity: 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    row-gap: 20px;
+    row-gap: 15px;
     transition: all .6s ease;
     .option-page {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: min-content min-content;
-      row-gap: 10px;
-      column-gap: 10px;
+      row-gap: 8px;
+      column-gap: 8px;
       p {
-        font-size: 1.2em;
+        font-size: clamp(1em, 1.1vw, 1.2em);
         grid-column: 1 / -1;
         grid-row: 1;
         justify-self: center;
       }
       button {
-        font-size: 1.2em;
+        font-size: clamp(0.9em, 1vw, 1.2em);
         background-color: white;
         border: #046A38 1.5px solid;
         color: #030300;
-        padding: 6px 8px;
+        padding: 5px 6px;
         transition: all .25s ease;
       }
       button.disabled {
@@ -169,9 +171,9 @@ html {
     button {
       background: #046A38;
       border: #030300 1.5px solid;
-      font-size: 1.1em;
+      font-size: clamp(0.9em, 1vw, 1.1em);
       color: white;
-      padding: 12px 80px;
+      padding: 10px 60px;
       cursor: pointer;
     }
     .option-page {
@@ -195,7 +197,7 @@ html {
   z-index: 5;
   position: absolute;
   img {
-    height: 300px;
+    height: clamp(150px, 25vh, 300px);
   }
   #horace-1 {
     display: block;
@@ -205,15 +207,15 @@ html {
   #horace-2 {
     display: none;
     opacity: 0;
-    padding-left: 200px;
+    padding-left: clamp(80px, 15vw, 200px);
     transition: .6s ease all;
   }
   #horace-3 {
     display: none;
     opacity: 0;
-    padding-left: 150px;
+    padding-left: clamp(60px, 12vw, 150px);
     transition: .6s ease all;
-    height: 430px !important;
+    height: clamp(200px, 35vh, 430px) !important;
   }
   #horace-4 {
     display: none;
@@ -236,8 +238,8 @@ html {
     transition: all .5s ease;
     margin-top: -50px;
     img {
-      width: 110px;
-      margin-left: 25px;
+      width: clamp(70px, 8vw, 110px);
+      margin-left: 20px;
       grid-column: 1;
       grid-row: 1;
       transition: all .4s ease;
@@ -280,61 +282,64 @@ html {
   z-index: 1000;
   transform: translateY(-100%);
   transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  overflow-y: auto;
   h1 {
     color: white;
-    font-size: 2.5em;
+    font-size: clamp(1.5em, 3vw, 2.5em);
   }
   #save-settings {
     background: #046A38;
     border: #030300 1.5px solid;
-    font-size: 1.1em;
+    font-size: clamp(0.9em, 1vw, 1.1em);
     color: white;
-    padding: 12px 80px;
+    padding: 10px 60px;
     cursor: pointer;
     width: min-content;
     justify-self: center;
   }
   .content {
-    padding: 40px;
+    padding: 20px;
     text-align: center;
     display: grid;
     grid-template-rows: min-content 1fr min-content;
-    height: 100%;
+    min-height: 100%;
     .settings-tabs {
       display: grid;
       height: min-content;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      column-gap: 100px;
-      row-gap: 80px;
-      margin-top: 140px;
+      column-gap: clamp(20px, 5vw, 100px);
+      row-gap: clamp(20px, 5vh, 80px);
+      margin-top: clamp(40px, 10vh, 140px);
+      padding: 0 20px;
       .tab {
         align-self: center;
         justify-self: center;
         background-color: #F1E7D3;
         border: #030300 2px solid;
         width: 100%;
-        height: 100px;
+        height: auto;
+        min-height: 70px;
         display: flex;
+        flex-wrap: wrap;
         opacity: 1;
         align-items: center;
         justify-content: start;
-        padding-left: 30px;
-        gap: 20px;
-        row-gap: 20px;
+        padding: 10px 15px;
+        gap: 10px;
         transition: all .6s ease;
         p {
-          font-size: 1.1em;
+          font-size: clamp(0.9em, 1vw, 1.1em);
           grid-column: 1 / -1;
           grid-row: 1;
           justify-self: center;
         }
         button {
-          font-size: 1.1em;
+          font-size: clamp(0.8em, 0.9vw, 1.1em);
           background-color: white;
           border: #046A38 1.5px solid;
           color: #030300;
-          padding: 6px 8px;
+          padding: 5px 6px;
           transition: all .25s ease;
         }
       }
@@ -344,4 +349,93 @@ html {
 
 .settings-overlay.is-open {
   transform: translateY(0);
+}
+
+/* Chromebook and small laptop screens (max 1366px height or 768px height) */
+@media (max-height: 800px) {
+  .interaction-zone {
+    height: 55vh;
+    .intro-text {
+      font-size: clamp(0.8em, 1.1vw, 1.2em);
+      padding-top: 15px;
+    }
+    .options-card {
+      margin-top: 20px;
+      min-height: 150px;
+      padding: 15px 12px;
+      row-gap: 10px;
+    }
+  }
+  .horace-cont {
+    margin-bottom: 4%;
+    img {
+      height: clamp(120px, 20vh, 200px);
+    }
+    #horace-3 {
+      height: clamp(160px, 28vh, 300px) !important;
+    }
+  }
+  .settings-overlay .content {
+    .settings-tabs {
+      margin-top: 30px;
+      row-gap: 15px;
+      .tab {
+        min-height: 60px;
+        padding: 8px 12px;
+      }
+    }
+  }
+}
+
+/* Very small screens / tablets */
+@media (max-width: 900px) {
+  .interaction-zone {
+    width: 60vw;
+    .options-card {
+      width: 100%;
+      margin-right: 0;
+      justify-self: center;
+    }
+  }
+  .settings-overlay .content .settings-tabs {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 15px;
+    .tab {
+      width: 90%;
+    }
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+  .interaction-zone {
+    width: 75vw;
+    .intro-text {
+      font-size: 0.85em;
+      padding-top: 10px;
+    }
+    #continue-btn button {
+      padding: 8px 40px;
+      font-size: 0.9em;
+    }
+    .options-card {
+      padding: 12px 10px;
+      min-height: 140px;
+      .option-page button {
+        font-size: 0.85em;
+        padding: 4px 5px;
+      }
+      > button {
+        padding: 8px 40px;
+      }
+    }
+  }
+  .horace-cont {
+    margin: 0 20% 5%;
+  }
+  .rope-cont #rope-btn img {
+    width: 60px;
+    margin-left: 15px;
+  }
 }

@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -11,6 +12,8 @@ body {
     z-index: -5;
     opacity: 0.55;
     width: 100vw;
+    height: 100vh;
+    object-fit: cover;
     position: absolute;
     justify-self: center;
     align-self: center;
@@ -22,14 +25,15 @@ body {
   background: #a78c88;
   display: grid;
   height: 100vh;
-  overflow-y: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .map-wrapper {
     align-self: center;
     justify-self: center;
     position: relative;
-    width: 1200px;
+    width: min(1200px, 95vw);
     margin: 60px auto;
 }
 
@@ -44,15 +48,15 @@ body {
 
 .map {
   display: grid;
-  grid-template-columns: repeat(9, 120px);
-  grid-auto-rows: 120px;
-  gap: 40px;
+  grid-template-columns: repeat(9, minmax(80px, 120px));
+  grid-auto-rows: minmax(80px, 120px);
+  gap: clamp(15px, 3vw, 40px);
   position: relative;
 }
 
 .node {
-  width: 100px;
-  height: 100px;
+  width: clamp(60px, 8vw, 100px);
+  height: clamp(60px, 8vw, 100px);
   cursor: pointer;
   position: relative;
   transition: 0.3s ease;
@@ -72,7 +76,7 @@ body {
 
 .card {
   position: absolute;
-  width: 300px;
+  width: min(300px, 80vw);
   background: white;
   border: 2px solid #444;
   padding: 20px;
@@ -123,15 +127,16 @@ line.solid {
 
 .map-cont {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
-  grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-columns: min-content 1fr min-content;
   grid-template-rows: min-content 1fr;
-  row-gap: 100px;
+  row-gap: clamp(30px, 8vh, 100px);
+  padding: 0 15px;
 }
 
 .chapter-header {
-  margin-top: 125px;
+  margin-top: clamp(40px, 10vh, 125px);
   grid-column: 2;
   grid-row: 1;
   justify-self: center;
@@ -139,13 +144,14 @@ line.solid {
   background: linear-gradient(180deg, rgba(242, 229, 225, 1) 0%, rgba(201, 186, 173, 1) 100%);
   border: 3px solid #1b1813;
   display: flex;
-  width: 600px;
-  height: 150px;
+  width: min(600px, 90vw);
+  height: clamp(80px, 12vh, 150px);
   align-items: center;
   justify-content: center;
+  padding: 10px 20px;
   h1 {
     color: #301A1A;
-    font-size: 3.8em;
+    font-size: clamp(1.8em, 4vw, 3.8em);
     text-align: center;
   }
 }
@@ -158,9 +164,10 @@ line.solid {
   width: min-content;
   align-self: start;
   justify-self: start;
-  margin: 20px 0 0 20px;
+  margin: 15px 0 0 5px;
+  cursor: pointer;
   img {
-
+    width: clamp(30px, 4vw, 50px);
   }
 }
 
@@ -168,30 +175,44 @@ line.solid {
   grid-column: 1 / -1;
   grid-row: 2;
   justify-self: center;
+  align-self: start;
+  width: 100%;
+  max-width: 1200px;
+  padding-bottom: 40px;
   a {
     text-decoration: none;
   }
   .map-row-1 {
     justify-self: center;
-    display: grid;
-    grid-template-columns: min-content min-content min-content min-content min-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(5px, 1vw, 15px);
     .line-1 {
       align-self: center;
-      margin-bottom: 10%;
+      width: clamp(40px, 8vw, 100px);
+      height: auto;
     }
   }
   .map-row-2 {
     justify-self: center;
-    display: grid;
-    grid-template-columns: min-content min-content min-content min-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: clamp(5px, 1vw, 15px);
+    margin-top: clamp(20px, 4vh, 50px);
     .line-2 {
-      justify-self: start;
+      width: clamp(50px, 10vw, 120px);
+      height: auto;
+      margin-top: clamp(40px, 8vh, 110px);
     }
     #line-2 {
-      margin-right: 65px;
+      margin-right: clamp(20px, 4vw, 65px);
     }
     .chapter-btn {
-      margin-top: 110px;
+      margin-top: clamp(40px, 8vh, 110px);
     }
   }
 }
@@ -204,8 +225,8 @@ line.solid {
   background: url(../visuals-updated/book.png);
   background-size: contain;
   background-repeat: no-repeat;
-  width: 300px;
-  height: 350px;
+  width: clamp(150px, 20vw, 300px);
+  height: clamp(175px, 23vw, 350px);
   align-content: start;
   transition: all .2s ease;
   h1 {
@@ -214,7 +235,7 @@ line.solid {
     color: #FFAF00;
     justify-self: center;
     z-index: 5;
-    font-size: 2.3em;
+    font-size: clamp(1em, 1.8vw, 2.3em);
     transition: all .15s ease;
   }
 }
@@ -222,5 +243,97 @@ line.solid {
 .chapter-btn:hover {
   h1 {
     color: white;
+  }
+}
+
+/* Chromebook and small screens */
+@media (max-height: 800px) {
+  .map-cont {
+    row-gap: clamp(20px, 5vh, 60px);
+  }
+  .chapter-header {
+    margin-top: clamp(30px, 6vh, 80px);
+    height: clamp(60px, 10vh, 100px);
+  }
+  .chapter-map {
+    .map-row-2 {
+      margin-top: clamp(15px, 3vh, 40px);
+      .chapter-btn {
+        margin-top: clamp(30px, 6vh, 80px);
+      }
+      .line-2 {
+        margin-top: clamp(30px, 6vh, 80px);
+      }
+    }
+  }
+  .chapter-btn {
+    width: clamp(120px, 18vw, 220px);
+    height: clamp(140px, 21vw, 260px);
+    h1 {
+      font-size: clamp(0.9em, 1.5vw, 1.8em);
+    }
+  }
+}
+
+/* Tablet screens */
+@media (max-width: 900px) {
+  .chapter-map {
+    .map-row-1, .map-row-2 {
+      gap: 10px;
+    }
+    .line-1, .line-2 {
+      display: none;
+    }
+  }
+  .chapter-btn {
+    width: clamp(130px, 25vw, 200px);
+    height: clamp(150px, 30vw, 240px);
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+  .map-cont {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    padding: 15px;
+  }
+  .settings {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .chapter-header {
+    grid-column: 1;
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    padding: 15px;
+    h1 {
+      font-size: 1.5em;
+    }
+  }
+  .chapter-map {
+    grid-column: 1;
+    .map-row-1, .map-row-2 {
+      flex-direction: row;
+      justify-content: center;
+      gap: 15px;
+    }
+    .map-row-2 {
+      margin-top: 20px;
+      .chapter-btn {
+        margin-top: 0;
+      }
+    }
+  }
+  .chapter-btn {
+    width: 100px;
+    height: 120px;
+    h1 {
+      font-size: 0.8em;
+      margin-top: 40%;
+    }
   }
 }
