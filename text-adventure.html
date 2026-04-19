@@ -11,63 +11,33 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <a href="warriors-map.html"><button id="back-btn">Back</button></a>
-    <div class="notebook-cont">
-        <div class="adventure-container">
-            <div class="chat-log" id="chatLog"></div>
-
-            <form class="chat-input" id="chatForm">
-                <input type="text" id="userInput" placeholder="What do you do?" autocomplete="off"/>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-        <img src="visuals/notebook.png" alt="" id="notebook">
-    </div> -->
-
-    <div class="adventure-cont">
-        <div class="icons">
-            <button class="settings">
-                <img src="visuals-updated/settings.png" alt="">
-            </button>
-            <a href="./dottie.html"><button class="dottie-icon">
-                <img src="visuals-updated/smile-icon.png" alt="">
-            </button></a>
-        </div>
-        <div class="options">
-            <button class="text-option" id="option-1">
-                <h1 class="capriola">Marsha</h1>
-                <p class="capriola">Melba's Best Friend</p>
-            </button>
-            <button class="text-option" id="option-2">
-                <h1 class="capriola">Marsha</h1>
-                <p class="capriola">Melba's Best Friend</p>
-            </button>
-            <button class="text-option" id="option-3">
-                <h1 class="capriola">Marsha</h1>
-                <p class="capriola">Melba's Best Friend</p>
-            </button>
-            <button class="text-option" id="option-4">
-                <h1 class="capriola">Marsha</h1>
-                <p class="capriola">Melba's Best Friend</p>
-            </button>
-            <button class="text-option" id="option-5">
-                <h1 class="capriola">Marsha</h1>
-                <p class="capriola">Melba's Best Friend</p>
-            </button>
-        </div>
-        <div class="notebook">
-            <div class="notebook-div">
-                <button class="back-btn">
-                    <img src="visuals-updated/purple-arrow.png" alt="">
-                </button>
-                <p class="capriola">The words feel heavy. <br> Integration might be stopped. <br> Maybe all of this suffering would be for nothing. <br> Melba folds the paper slowly. <br> The house feels unusually quiet. <br> Melba sinks into the couch. <br> She wants to talk to someone. She doesn't want to think about the news. She wants a normal day to herself. <br> The phone sits on the small table beside her. <br> Who should Melba call?</p>
-                <button class="next-btn caprasimo">NEXT</button>
-            </div>
-            <img src="visuals-updated/notebook.png" alt="">
+    <div id="intro-overlay" class="intro-box active">
+        <div class="intro-content">
+            <img src="./visuals-updated/newspaper.png" alt="">
+            <button id="start-adventure" class="caprasimo">CONTINUE</button>
         </div>
     </div>
 
-    <img src="visuals-updated/house-color.png" alt="" id="bg-img">
+    <div class="adventure-cont" id="main-ui" style="opacity: 0; pointer-events: none;">
+        <div class="icons">
+            <button class="settings"><img src="visuals-updated/settings.png"></button>
+            <a href="./dottie.html"><button class="dottie-icon"><img src="visuals-updated/smile-icon.png"></button></a>
+        </div>
+
+        <div class="options" id="options-container">
+            </div>
+
+        <div class="notebook">
+            <div class="notebook-div">
+                <button class="back-btn"><img src="visuals-updated/purple-arrow.png"></button>
+                <p id="adventure-text" class="capriola"></p>
+                <button id="next-btn" class="next-btn caprasimo" style="display: none;">NEXT</button>
+            </div>
+            <img src="visuals-updated/notebook.png" id="notebook-bg" alt="">
+        </div>
+    </div>
+
+    <img src="visuals-updated/living-room.png" alt="" id="bg-img">
     <script src="js/text-adventure.js" defer></script>
 </body>
 </html>

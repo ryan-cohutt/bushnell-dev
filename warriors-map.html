@@ -28,35 +28,42 @@
             <div class="map-row-1">
                 <button class="chapter-btn" id="chapter-1">
                     <h1 class="salsa">REGRET</h1>
-                    <!-- <img src="visuals-updated/book.png" alt=""> -->
                 </button>
                 <img src="visuals-updated/line-1.png" alt="" class="line-1">
-                <a href="./text-adventure.html"><button class="chapter-btn" id="chapter-2">
+                <button class="chapter-btn" id="chapter-2">
                     <h1 class="salsa">INNOCENCE</h1>
-                    <!-- <img src="visuals-updated/book.png" alt=""> -->
-                </button></a>
+                </button>
                 <img src="visuals-updated/line-2.png" alt="" class="line-1">
                 <button class="chapter-btn" id="chapter-3">
                     <h1 class="salsa">CHAPTER 3</h1>
-                    <!-- <img src="visuals-updated/book-faded.png" alt=""> -->
                 </button>
             </div>
             <div class="map-row-2">
                 <button class="chapter-btn" id="chapter-4">
                     <h1 class="salsa">CHAPTER 4</h1>
-                    <!-- <img src="visuals-updated/book.png" alt=""> -->
                 </button>
                 <img src="visuals-updated/line-3.png" alt="" class="line-2" id="line-2">
                 <img src="visuals-updated/line-4.png" alt="" class="line-2">
                 <button class="chapter-btn" id="chapter-5">
                     <h1 class="salsa">CHAPTER 5</h1>
-                    <!-- <img src="visuals-updated/book-faded.png" alt=""> -->
                 </button>
             </div>
 
         </div>
     </div>
     
+    <div id="chapter-popup" class="popup-overlay">
+        <div class="popup-content">
+            <button id="close-popup">
+                <img src="visuals-updated/blue-arrow.png" alt="">
+            </button>
+            <p id="popup-book" class="salsa">Book Chapter</p>
+            <h1 id="popup-title" class="caprasimo">Chapter Title</h1>
+            <h2 id="popup-description" class="caprasimo">Chapter description goes here...</h2>
+            <a href="" id="popup-link" class=""><p class="caprasimo">PLAY</p></a href="">
+        </div>
+    </div>
+
     <img src="visuals-updated/school-faded.png" alt="" id="bg-img">
     <script src="js/map.js"></script>
 </body>

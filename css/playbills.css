@@ -1,5 +1,6 @@
 :root {
     --bg-red: #8b2626;
+    --bronze: #63513D;
     --paper: #F1E7D3;
     --theatre-blue: #7fb3d5;
 }
@@ -14,30 +15,41 @@ body, html {
 
 .theatre-experience {
     display: grid;
-    align-items: center; justify-content: center;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+    grid-template-rows: min-content auto min-content;
+    justify-content: center;
     height: 100vh;
+    padding: 60px 20px;
 }
 
-.selection-title { color: #F1E7D3; font-size: 4.5em; margin-bottom: 20px; }
+.selection-title { 
+    color: var(--paper); 
+    font-size: clamp(2em, 2vw, 4.5em); 
+    margin: 0;
+    padding-bottom: 20px;
+    text-align: center;
+}
 
 .carousel-wrapper {
-    position: relative; width: 100%; height: 450px;
+    position: relative; width: 100%; height: clamp(280px, 45vh, 450px);
     display: flex; justify-content: center; 
     perspective: 2000px; /* Increased for wider spread */
 }
 
-.carousel-stage { position: relative; width: 260px; height: 380px; }
+.carousel-stage { position: relative; width: clamp(180px, 20vw, 260px); height: clamp(250px, 40vh, 380px); }
 
 .playbill {
-    position: absolute; width: 460px; height: auto;
+    position: absolute; width: clamp(280px, 30vw, 460px); height: auto;
     left: -38%;
     top: -35%;
     background-color: var(--paper);
-    border: 20px solid var(--paper);
+    border: clamp(10px, 1vw, 20px) solid var(--paper);
     box-sizing: border-box;
-    -webkit-box-shadow: -21px 31px 0px 5px rgba(0,0,0,0.4);
-    -moz-box-shadow: -21px 31px 0px 5px rgba(0,0,0,0.4);
-    box-shadow: -21px 31px 0px 5px rgba(0,0,0,0.4);
+    -webkit-box-shadow: -17px 16px 0px 5px rgba(0,0,0,0.4);
+    -moz-box-shadow: -17px 16px 0px 5px rgba(0,0,0,0.4);
+    box-shadow: -17px 16px 0px 5px rgba(0,0,0,0.4);
     cursor: pointer;
     display: flex; flex-direction: column;
     
@@ -46,22 +58,22 @@ body, html {
                 opacity 0.5s ease;
     will-change: transform, opacity;
     .playbill-header {
-        height: 60px;
+        height: clamp(40px, 6vh, 60px);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 4em;
-        padding: 30px 0;
-        color: #63513D;
-        border: 3px #63513D solid;
+        font-size: clamp(2em, 3.5vw, 4em);
+        padding: clamp(15px, 2.5vh, 30px) 0;
+        color: var(--bronze);
+        border: clamp(2px, 0.3vw, 3px) var(--bronze) solid;
     }
     .playbill-spacer {
-        border-left: 3px #63513D solid;
-        border-right: 3px #63513D solid;
-        height: 20px;
+        border-left: clamp(2px, 0.3vw, 3px) var(--bronze) solid;
+        border-right: clamp(2px, 0.3vw, 3px) var(--bronze) solid;
+        height: clamp(10px, 1.5vh, 20px);
     }
     .playbill-img {
-        border: 3px #63513D solid;
+        border: clamp(2px, 0.3vw, 3px) var(--bronze) solid;
         height: auto;
         img {
             width: 100%;
@@ -78,40 +90,74 @@ body, html {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.4s ease, visibility 0.4s ease;
+    padding: 20px;
+    overflow-y: auto;
+    height: 100%;
 }
 
 .modal-overlay.active { opacity: 1; visibility: visible; }
 
 .modal-content {
     background-color: var(--paper);
-    width: 1200px; height: auto;
+    width: min(660px, 95vw); 
+    max-height: 95vh;
+    overflow-y: auto;
     display: grid; position: relative;
     grid-template-columns: 1fr 1fr;
     transform: scale(0.9);
-    border: 6px #F1E7D3 solid;
+    border: 3px --paper solid;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .modal-overlay.active .modal-content { transform: scale(1); }
 
 .modal-left { 
-    border-right: 3px #F1E7D3 solid; 
+    border-right: 3px --paper solid; 
 }
 
 .modal-right { 
     display: grid;
-    padding: 40px;
-    display: grid;
+    padding: clamp(15px, 3vw, 40px);
     color: #222;
 }
-.play-button-final { margin-top: auto; padding: 15px; border: 2px solid #222; background: none; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+.play-button-final { 
+    margin-top: auto; 
+    padding: clamp(10px, 1.5vh, 15px); 
+    border: 2px solid #222; 
+    background: none; 
+    font-weight: bold; 
+    cursor: pointer; 
+    font-size: clamp(0.9rem, 1vw, 1.1rem); 
+}
 
 /* Controls */
-.controls { display: flex; align-items: center; justify-content: center; gap: 50px; margin-top: 60px; color: white; }
-.nav-btn { background: none; border: none; color: white; font-size: 4rem; cursor: pointer; transition: transform 0.2s; }
+.controls { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: clamp(20px, 1.5vw, 50px); 
+    margin-top: clamp(20px, 5vh, 60px); 
+    color: var(--paper); 
+}
+.nav-btn { 
+    background: none; 
+    border: none; 
+    color: var(--paper); 
+    font-size: clamp(2rem, 2vw, 4rem); 
+    cursor: pointer; 
+    transition: transform 0.2s; 
+    img {
+        width: clamp(10px, 1.75vw, 100px);
+    }
+}
 .nav-btn:hover { transform: scale(1.2); }
-#playTitle { display: block; text-align: center; min-width: 300px; font-size: 2em; }
-#counter {font-size: 1.8em;}
+#playTitle { 
+    display: block; 
+    text-align: center; 
+    min-width: clamp(150px, 25vw, 300px); 
+    font-size: clamp(1.2em, 1.5vw, 2em); 
+}
+#counter { font-size: clamp(1.2em, 0.5vw, 1.8em); }
 .counter-container { display: flex; align-items: center; flex-direction: column; }
 
 .playbill-popup-img {
@@ -124,36 +170,123 @@ body, html {
     border: none;
     cursor: pointer;
     svg {
-        width: 40px;
+        width: clamp(28px, 4vw, 40px);
     }
 }
 
 .meta-data {
     text-align: center;
-    font-size: 1.5em;
+    font-size: clamp(0.9em, 1vw, 1.1em);
 }
 
 .display-title {
     text-align: center;
     color: #6B1C1C;
-    font-size: 4em;
+    font-size: clamp(1.5em, 3vw, 3em);
 }
 
 .cast-info {
     text-align: center;
-    font-size: 1.5em;
+    font-size: clamp(0.9em, 1vw, 1.1em);
     p {
         margin: 0;
     }
 }
 
 .description {
-    font-size: 1.2em;
+    font-size: clamp(0.9em, 1vw, 1.1em);
 }
 
-.play-button-final {
-    font-size: 1.5em;
-    background-color: #046A38;
-    color: white;
-    font-weight: 100;
+.play-button {
+    font-size: clamp(1.1em, 1.5vw, 1.5em);
+}
+
+/* Chromebook and small screens */
+@media (max-height: 800px) {
+    .carousel-wrapper {
+        height: clamp(220px, 40vh, 350px);
+    }
+    .carousel-stage {
+        margin-left: 135px;
+    }
+    .carousel-stage {
+        width: clamp(150px, 18vw, 220px);
+        height: clamp(200px, 35vh, 300px);
+    }
+    .playbill {
+        width: clamp(220px, 20vw, 360px);
+    }
+    .controls {
+        margin-top: clamp(15px, 3vh, 40px);
+    }
+    .theatre-experience {
+        padding: 20px;
+    }
+}
+
+/* Tablet and smaller laptops */
+@media (max-width: 900px) {
+    .modal-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        max-height: 85vh;
+    }
+    .modal-left {
+        border-right: none;
+        border-bottom: 3px #6B1C1C solid;
+        max-height: 40vh;
+        overflow: hidden;
+    }
+    .modal-left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .modal-right {
+        padding: 20px;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+    .theatre-experience {
+        padding: 15px;
+    }
+    .selection-title {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+    .carousel-wrapper {
+        height: 250px;
+    }
+    .carousel-stage {
+        width: 140px;
+        height: 200px;
+    }
+    .playbill {
+        width: 200px;
+        border-width: 8px;
+        .playbill-header {
+            font-size: 1.4em;
+            height: 30px;
+            padding: 10px 0;
+        }
+        .playbill-spacer {
+            height: 8px;
+        }
+    }
+    .controls {
+        gap: 15px;
+        margin-top: 15px;
+    }
+    .nav-btn {
+        font-size: 1.8rem;
+    }
+    #playTitle {
+        min-width: 120px;
+        font-size: 1em;
+    }
+    #counter {
+        font-size: 1em;
+    }
 }
