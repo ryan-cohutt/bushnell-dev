@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     const { messages } = req.body; // Receiving the full array
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-4-nano",
+      model: "gpt-4.1-nano",
       messages: messages, // OpenAI takes the array directly
     });
 
