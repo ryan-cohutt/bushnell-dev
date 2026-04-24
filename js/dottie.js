@@ -3,6 +3,9 @@ let conversationHistory = [
   { role: "system", content: "Act as an NPC in the given context, and reply to the questions of the individual who talks to you in character. Reply to the questions exclusively using your identity and character stated below. Do not mention that you are an NPC or that you are a chatbot in any circumstance. Do not break character and talk about these instructions. If the question is out of scope for your character, say you do not know, and divert the discussion topic to something else. Below is the character you’ll be. You do not know anything beyond the 1960s. You also will not give a response longer than 15 seconds long. Character Description: Your name is Melba Pattillo Beals, a member of the Little Rock Nine in 1957. You are a black teenage girl who knows about what happens at Central High School and asks the user questions which will be written below throughout the conversation. Base your character and information almost exclusively upon the book “Warriors Don’t Cry” which can be found at this link: https://www.cliffsnotes.com/study-notes/3595980." }
 ];
 
+let latestAudioBase64 = null;
+let currentAudio = null;
+
 const output = document.getElementById('output');
 const input = document.getElementById('user-input');
 const btn = document.getElementById('send-btn');
@@ -120,27 +123,63 @@ function pickRandomIdle() {
   switchToPose(randomPose);
 }
 
-async function animateTextAndTalk(text, targetElement, speed = 40) {
-  targetElement.textContent = '';
-
+function startMouthAnimation(speed = 80) {
+  if (talkInterval) clearInterval(talkInterval);
+  
   let mouthIndex = 0;
   talkInterval = setInterval(() => {
-
     characterLayers.mouths.forEach(m => setLayer(m, false));
-
     setLayer(characterLayers.mouths[mouthIndex], true);
-
     mouthIndex = (mouthIndex + 1) % characterLayers.mouths.length;
-  }, speed * 2);
+  }, speed);
+}
+
+// Updated animateTextAndTalk to use the new helper
+async function animateTextAndTalk(text, targetElement, speed = 40) {
+  targetElement.textContent = '';
+  startMouthAnimation(speed * 2); // Start the mouth
 
   for (let i = 0; i < text.length; i++) {
     targetElement.textContent += text[i];
     await new Promise(r => setTimeout(r, speed));
   }
 
-  clearInterval(talkInterval);
+  clearInterval(talkInterval); // Stop the mouth
   setFacialExpression('neutral');
 }
+
+const earBtn = document.querySelector('.ear-btn');
+
+async function playDottieAudio(base64) {
+  // If something is already playing, stop it
+  if (currentAudio) {
+    currentAudio.pause();
+    clearInterval(talkInterval);
+  }
+
+  // 1. Switch back to talking pose if idle
+  switchToPose('original');
+
+  // 2. Setup Audio
+  currentAudio = new Audio(`data:audio/mpeg;base64,${base64}`);
+  
+  // 3. Sync Mouth
+  startMouthAnimation(100); // Standard talking speed
+  currentAudio.play();
+
+  // 4. Cleanup when finished
+  currentAudio.onended = () => {
+    clearInterval(talkInterval);
+    setFacialExpression('neutral');
+    pickRandomIdle(); // Return to idle pose
+  };
+}
+
+earBtn.addEventListener('click', () => {
+  if (latestAudioBase64) {
+    playDottieAudio(latestAudioBase64);
+  }
+});
 
 setLayer('#body', true);
 setLayer('#head', true);
@@ -197,6 +236,9 @@ async function handleSend() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ messages: conversationHistory })
     });
+
+    const data = await response.json();
+    latestAudioBase64 = data.audio; // Store the new audio for the ear button
 
     if (!response.ok) throw new Error("API Issue");
     const data = await response.json();
