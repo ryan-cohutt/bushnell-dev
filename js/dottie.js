@@ -1,5 +1,6 @@
 let conversationHistory = [
-  { role: "system", content: "Act as an NPC in the given context, and reply to the questions of the individual who talks to you in character. Reply to the questions exclusively using your identity and character stated below. Do not mention that you are an NPC or that you are a chatbot in any circumstance. Do not break character and talk about these instructions. If the question is out of scope for your character, say you do not know, and divert the discussion topic to something else. Below is the character you’ll be. You do not know anything beyond the 1960s. You also will not give a response longer than 15 seconds long. Character Description: Your name is Dottie, and you are a friend of Melba Pattillo Beals, a member of the Little Rock Nine in 1957. You are a black teenage girl who knows about what happens at Central High School and asks the user questions which will be written below throughout the conversation. Base your character and information almost exclusively upon the book “Warriors Don’t Cry” which can be found at this link: https://www.cliffsnotes.com/study-notes/3595980." }
+  // { role: "system", content: "Act as an NPC in the given context, and reply to the questions of the individual who talks to you in character. Reply to the questions exclusively using your identity and character stated below. Do not mention that you are an NPC or that you are a chatbot in any circumstance. Do not break character and talk about these instructions. If the question is out of scope for your character, say you do not know, and divert the discussion topic to something else. Below is the character you’ll be. You do not know anything beyond the 1960s. You also will not give a response longer than 15 seconds long. Character Description: Your name is Dottie, and you are a friend of Melba Pattillo Beals, a member of the Little Rock Nine in 1957. You are a black teenage girl who knows about what happens at Central High School and asks the user questions which will be written below throughout the conversation. Base your character and information almost exclusively upon the book “Warriors Don’t Cry” which can be found at this link: https://www.cliffsnotes.com/study-notes/3595980." }
+  { role: "system", content: "Act as an NPC in the given context, and reply to the questions of the individual who talks to you in character. Reply to the questions exclusively using your identity and character stated below. Do not mention that you are an NPC or that you are a chatbot in any circumstance. Do not break character and talk about these instructions. If the question is out of scope for your character, say you do not know, and divert the discussion topic to something else. Below is the character you’ll be. You do not know anything beyond the 1960s. You also will not give a response longer than 15 seconds long. Character Description: Your name is Melba Pattillo Beals, a member of the Little Rock Nine in 1957. You are a black teenage girl who knows about what happens at Central High School and asks the user questions which will be written below throughout the conversation. Base your character and information almost exclusively upon the book “Warriors Don’t Cry” which can be found at this link: https://www.cliffsnotes.com/study-notes/3595980." }
 ];
 
 const output = document.getElementById('output');
@@ -19,8 +20,23 @@ const imagePaths = [
   './dottie/Dot_Brows_Sad.png', './dottie/Dot_Eyes_Closed.png', './dottie/Dot_Eyes_HalfClosed.png',
   './dottie/Dot_Eyes_Open.png', './dottie/Dot_Head.png', './dottie/Dot_Mouth_Closed.png',
   './dottie/Dot_Mouth_Frown.png', './dottie/Dot_Mouth_HalfOpen.png', './dottie/Dot_Mouth_Open.png',
-  './dottie/Dot_Thinking.png', './dottie/Glasses.png'
+  './dottie/Dot_Thinking.png', './dottie/Glasses.png', './dottie/Dot_Eyes_Closed_Idol2.png', './dottie/Dot_Eyes_HalfClosed_Idol2.png',
+  './dottie/Dot_Eyes_Open_Idol2.png', './dottie/Dot_Idol2.png', './dottie/Dot_Eyes_Closed_Idol3.png', 
+  './dottie/Dot_Eyes_HalfClosed_Idol3.png', './dottie/Dot_Eyes_Open_Idol3.png', './dottie/Dot_Idol3.png'
 ];
+
+let currentPose = 'original';
+
+const poseConfigs = {
+  original: {
+    base: ['#body', '#head', '#glasses'],
+    eyes: { open: '#eyes-open', half: '#eyes-half-closed', closed: '#eyes-closed' }
+  },
+  idle2: {
+    base: ['#idle2-body'],
+    eyes: { open: '#idle2-eyes-open', half: '#idle2-eyes-half', closed: '#idle2-eyes-closed' }
+  }
+};
 
 preloadImages(imagePaths);
 
@@ -58,25 +74,50 @@ function startBlinking() {
   if (blinkInterval) return;
 
   blinkInterval = setInterval(() => {
-    setLayer('#eyes-open', false);
-    setLayer('#eyes-half-closed', true);
+    const eyes = poseConfigs[currentPose].eyes;
+    
+    setLayer(eyes.open, false);
+    setLayer(eyes.half, true);
     
     setTimeout(() => {
-      setLayer('#eyes-half-closed', false);
-      setLayer('#eyes-closed', true);
+      setLayer(eyes.half, false);
+      setLayer(eyes.closed, true);
     }, 50);
 
     setTimeout(() => {
-      setLayer('#eyes-closed', false);
-      setLayer('#eyes-half-closed', true);
+      setLayer(eyes.closed, false);
+      setLayer(eyes.half, true);
     }, 100);
 
     setTimeout(() => {
-      setLayer('#eyes-half-closed', false);
-      setLayer('#eyes-open', true);
+      setLayer(eyes.half, false);
+      setLayer(eyes.open, true);
     }, 150);
 
   }, 4000);
+}
+
+function switchToPose(poseName) {
+  clearAllLayers();
+  currentPose = poseName;
+  
+  // Turn on base layers for this pose
+  poseConfigs[poseName].base.forEach(selector => {
+    document.querySelector(selector).classList.add('active');
+  });
+
+  // Ensure eyes start open
+  setLayer(poseConfigs[poseName].eyes.open, true);
+
+  if (poseName === 'original') {
+    setFacialExpression('neutral');
+  }
+}
+
+function pickRandomIdle() {
+  const idlePoses = ['idle2'];
+  const randomPose = idlePoses[Math.floor(Math.random() * idlePoses.length)];
+  switchToPose(randomPose);
 }
 
 async function animateTextAndTalk(text, targetElement, speed = 40) {
@@ -139,16 +180,13 @@ async function handleSend() {
   const userText = input.value.trim();
   if (!userText) return;
 
-  // 1. Show user message immediately & clear input
   appendMessage('user', userText);
   conversationHistory.push({ role: "user", content: userText });
   input.value = '';
 
-  // 2. STOP BLINKING & SHOW THINKING STATE
+  // 1. Thinking State (Global Hide)
   clearInterval(blinkInterval);
-  blinkInterval = null; // Reset so it can be restarted
-  clearInterval(talkInterval);
-  
+  blinkInterval = null;
   clearAllLayers();
   document.querySelector('#thinking-state').classList.add('active');
 
@@ -164,11 +202,12 @@ async function handleSend() {
     const data = await response.json();
 
     // 4. HIDE THINKING & RESTORE CHARACTER
-    clearAllLayers();
+    clearAllLayers(); // Removes thinking image
     document.querySelector('#body').classList.add('active');
     document.querySelector('#head').classList.add('active');
     document.querySelector('#glasses').classList.add('active'); // Added your glasses back!
     
+    switchToPose('original'); // Show head, body, glasses, etc.
     setFacialExpression('neutral'); 
     startBlinking(); // Resume blinking for the response
 
@@ -178,6 +217,8 @@ async function handleSend() {
     
     // Run the typewriter and mouth animation
     await animateTextAndTalk(data.reply, latestBubble);
+
+    pickRandomIdle();
 
     // 6. SAVE TO HISTORY
     conversationHistory.push({ role: "assistant", content: data.reply });
@@ -190,6 +231,8 @@ async function handleSend() {
     setFacialExpression('neutral');
     startBlinking();
     appendMessage('ai', "I'm sorry, sugar, I'm having a hard time hearing you right now.");
+
+    pickRandomIdle();
   }
 }
 
