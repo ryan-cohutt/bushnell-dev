@@ -219,61 +219,49 @@ async function handleSend() {
   const userText = input.value.trim();
   if (!userText) return;
 
+  // 1. UI Update
   appendMessage('user', userText);
   conversationHistory.push({ role: "user", content: userText });
   input.value = '';
 
-  // 1. Thinking State (Global Hide)
+  // 2. Thinking State
   clearInterval(blinkInterval);
   blinkInterval = null;
   clearAllLayers();
   document.querySelector('#thinking-state').classList.add('active');
 
   try {
-    // 3. CALL THE API
+    // 3. API Call
     const response = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ messages: conversationHistory })
     });
 
-    const data = await response.json();
-    latestAudioBase64 = data.audio; // Store the new audio for the ear button
-
     if (!response.ok) throw new Error("API Issue");
+
+    // CONSUME DATA ONLY ONCE
     const data = await response.json();
+    latestAudioBase64 = data.audio; // Store for the ear button
 
-    // 4. HIDE THINKING & RESTORE CHARACTER
-    clearAllLayers(); // Removes thinking image
-    document.querySelector('#body').classList.add('active');
-    document.querySelector('#head').classList.add('active');
-    document.querySelector('#glasses').classList.add('active'); // Added your glasses back!
-    
-    switchToPose('original'); // Show head, body, glasses, etc.
-    setFacialExpression('neutral'); 
-    startBlinking(); // Resume blinking for the response
+    // 4. RESTORE CHARACTER POSE
+    // switchToPose('original') already handles body, head, and glasses layers
+    switchToPose('original'); 
+    startBlinking(); 
 
-    // 5. ANIMATE TEXT AND MOUTH SYNC
-    // We get the bubble directly from the function now
+    // 5. ANIMATE
     const latestBubble = appendMessage('ai', '');
-    
-    // Run the typewriter and mouth animation
     await animateTextAndTalk(data.reply, latestBubble);
 
-    pickRandomIdle();
-
-    // 6. SAVE TO HISTORY
+    // 6. FINISH
     conversationHistory.push({ role: "assistant", content: data.reply });
+    pickRandomIdle();
 
   } catch (error) {
     console.error("Error:", error);
-    clearAllLayers();
-    document.querySelector('#body').classList.add('active');
-    document.querySelector('#head').classList.add('active');
-    setFacialExpression('neutral');
+    switchToPose('original');
     startBlinking();
     appendMessage('ai', "I'm sorry, sugar, I'm having a hard time hearing you right now.");
-
     pickRandomIdle();
   }
 }
