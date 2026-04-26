@@ -99,7 +99,7 @@ body, html {
 
 .modal-content {
     background-color: var(--paper);
-    width: min(660px, 95vw); 
+    width: min(800px, 95vw); 
     max-height: 95vh;
     overflow-y: auto;
     display: grid; position: relative;
@@ -221,6 +221,9 @@ body, html {
     }
     .theatre-experience {
         padding: 20px;
+    }
+    .modal-content {
+        width: min(660px, 95vw); 
     }
 }
 

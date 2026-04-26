@@ -64,8 +64,8 @@ body {
 
 .journal-pages {
     /* border: green 2px solid; */
-    margin-left: clamp(2%, 8vw, 13%);
-    width: clamp(85%, 75vw, 76%);
+    margin-left: clamp(2%, 20vw, 16%);
+    width: clamp(60%, 68vw, 76%);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: clamp(10px, 2vw, 20px);
@@ -74,7 +74,7 @@ body {
         display: grid;
         .dottie {
             align-self: center;
-            margin-left: 2%;
+            margin-left: 4%;
             margin-bottom: 2.5%;
             width: 80%;
             padding-top: 100px;
@@ -103,8 +103,8 @@ body {
         }
     }
     .right-page {
-        border: transparent 2px solid;
-        height: clamp(70%, 80vh, 86%);
+        /* border: red 2px solid; */
+        height: clamp(70%, 78vh, 86%);
         align-self: center;
         margin-bottom: clamp(5%, 8vh, 10%);
         display: grid;
@@ -133,11 +133,11 @@ body {
             display: grid;
             margin-top: 10px;
             p {
-                width: 95%;
+                width: 82%;
                 margin: 0;
-                margin-left: 15px;
-                padding-bottom: 7px;
-                font-size: 0.8em;
+                margin-left: 130px;
+                padding: 0px;
+                font-size: 1.6em;
             }
             a {
                 justify-self: center;
@@ -145,10 +145,10 @@ body {
                     background: #046A38;
                     border: #030300 1.5px solid;
                     font-weight: normal;
-                    font-size: clamp(0.9em, 1.4vw, 1.1em);
+                    font-size: clamp(0.9em, 2vw, 1.6em);
                     color: white;
                     width: min-content;
-                    padding: 10px 50px;
+                    padding: 15px 50px;
                     cursor: pointer;
                     text-decoration: none;
                 }
@@ -263,13 +263,36 @@ body {
     width: 61%;
     .left-page .dottie {
       padding-top: 30px;
-      margin-left: 0;
-      width: 85%;
+      margin-left: 16px;
+      width: 82%;
     }
     .right-page {
       height: 80%;
-      margin-left: 18px;
+      margin-left: 34px;
       margin-bottom: 5%;
+      #intro-container {
+        p {
+            width: 90%;
+            margin: 0;
+            margin-left: 15px;
+            padding-bottom: 7px;
+            font-size: 0.8em;
+        }
+        a {
+            justify-self: center;
+            button {
+                background: #046A38;
+                border: #030300 1.5px solid;
+                font-weight: normal;
+                font-size: clamp(0.9em, 2vw, 1em);
+                color: white;
+                width: min-content;
+                padding: 7px 40px;
+                cursor: pointer;
+                text-decoration: none;
+            }
+        }
+      }
       #chat-container {
         margin-left: 15px;
         #output {

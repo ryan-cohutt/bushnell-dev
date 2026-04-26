@@ -144,7 +144,7 @@ line.solid {
   background: linear-gradient(180deg, rgba(242, 229, 225, 1) 0%, rgba(201, 186, 173, 1) 100%);
   border: 3px solid #1b1813;
   display: flex;
-  width: min(400px, 90vw);
+  width: min(600px, 90vw);
   height: clamp(80px, 12vh, 150px);
   align-items: center;
   justify-content: center;
@@ -240,6 +240,29 @@ line.solid {
   }
 }
 
+.chapter-faded {
+  display: grid;
+  background: transparent;
+  border: none;
+  cursor: none;
+  background: url(../visuals-updated/book-faded.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: clamp(150px, 20vw, 300px);
+  height: clamp(175px, 23vw, 350px);
+  align-content: start;
+  transition: all .2s ease;
+  h1 {
+    margin-left: 10%;
+    margin-top: 35%;
+    color: #b9aeae;
+    justify-self: center;
+    z-index: 5;
+    font-size: clamp(1em, 1.8vw, 2.3em);
+    transition: all .15s ease;
+  }
+}
+
 .chapter-btn:hover {
   h1 {
     color: white;
@@ -320,6 +343,7 @@ line.solid {
   .chapter-header {
     margin-top: clamp(30px, 6vh, 80px);
     height: clamp(60px, 12vh, 100px);
+    width: min(400px, 90vw);
 
   }
   .chapter-map {

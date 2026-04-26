@@ -4,19 +4,19 @@ const chapterData = {
         title: "Regret",
         description: "OUT WITH THE OLD, IN WITH THE NEW",
         book: "Based on Warriors Don't Cry, Chapter 8",
-        link: "../dottie-intro.html"
+        link: "dottie-intro.html"
     },
     "chapter-2": {
         title: "INNOCENCE",
         description: "Before the integration, everything seemed simpler. Or was it?",
         book: "Based on Warriors Don't Cry, Chapter 8",
-        link: "./text-adventure.html"
+        link: ""
     },
     "chapter-3": {
         title: "CONFRONTATION",
         description: "Face the mob at the front gates of the school.",
         book: "Based on Warriors Don't Cry, Chapter 8",
-        link: "./chapter-3.html"
+        link: ""
     }
     // Add 4 and 5 here...
 };

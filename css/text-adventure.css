@@ -80,10 +80,10 @@ body {
     text-wrap: nowrap;
     cursor: pointer;
     h1 {
-      font-size: clamp(0.9em, 1.5vw, 1.2em);
+      font-size: clamp(0.9em, 1.5vw, 1.8em);
     }
     p {
-      font-size: clamp(0.75em, 1.2vw, 1em);
+      font-size: clamp(0.75em, 1.2vw, 1.2em);
     }
   }
   .text-option:hover {
@@ -132,7 +132,7 @@ body {
     grid-column: 1;
     grid-row: 1;
     z-index: 10;
-    width: 58%;
+    width: 65%;
     height: 82%;
     display: grid;
     grid-template-rows: min-content 1fr min-content;
@@ -154,7 +154,7 @@ body {
       margin-top: clamp(15px, 3vh, 40px);
       height: 100%;
       font-size: clamp(1em, 1.5vw, 1.8em);
-      line-height: clamp(1.8em, 2.2vw, 2.5em);
+      line-height: clamp(1.8em, 3vw, 2.8em);
       overflow-y: auto;
       white-space: pre-wrap;
     }
@@ -175,7 +175,7 @@ body {
     grid-column: 1;
     grid-row: 1;
     display: block;
-    height: 100vh;
+    height: 95vh;
     width: auto;
     justify-self: end;
     object-fit: contain;
@@ -209,7 +209,7 @@ body {
     .intro-content {
       display: grid;
       img {
-        height: 300px;
+        height: 600px;
         grid-row: 1;
         grid-column: 1;
       }
@@ -217,11 +217,11 @@ body {
         grid-row: 1;
         grid-column: 1;
         background-color: #F1E7D3;
-        border: #63513D solid 1.5px;
-        font-size: 1em;
-        margin-bottom: 20px;
+        border: #63513D solid 2.5px;
+        font-size: 1.7em;
+        margin-bottom: 48px;
         height: min-content;
-        padding: 10px 50px;
+        padding: 20px 90px;
         align-self: end;
         justify-self: center;
       }
@@ -277,6 +277,12 @@ body {
     padding: 15px 30px;
     .text-option {
       padding: 20px 35px;
+      h1 {
+        font-size: clamp(0.9em, 1.5vw, 1.2em) !important;
+      }
+      p {
+        font-size: clamp(0.75em, 1.2vw, 1em) !important;
+      }
     }
     #option-3, #option-5 {
       margin-top: 50px;
@@ -287,12 +293,30 @@ body {
     height: 85%;
     p {
       margin-top: 15px;
+      margin-left: 20px;
       font-size: clamp(0.7em, 1.1vw, 1.4em);
       line-height: 2.2em;
     }
     .next-btn {
       height: 45px;
       font-size: 1.2em;
+    }
+  }
+  #notebook-bg {
+    height: 98vh !important;
+  }
+  .notebook-div {
+    width: 58% !important;
+  }
+  .intro-content {
+    img {
+      height: 300px !important;
+    }
+    button {
+      border: #63513D solid 1.5px !important;
+      font-size: 1em !important;
+      margin-bottom: 20px !important;
+      padding: 10px 50px !important;
     }
   }
 }

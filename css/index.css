@@ -99,7 +99,7 @@ html {
     z-index: 10;
     color: white;
     text-align: center;
-    font-size: clamp(0.9em, 1.2vw, 1.4em);
+    font-size: clamp(0.9em, 1.5vw, 1.8em);
     padding-top: 20px;
     opacity: 0;
     transition: 1.5s ease all;
@@ -116,7 +116,7 @@ html {
     button {
       background: #046A38;
       border: #030300 1.5px solid;
-      font-size: clamp(0.9em, 1vw, 1.1em);
+      font-size: clamp(0.9em, 1vw, 1.5em);
       color: white;
       padding: 10px 60px;
       cursor: pointer;
@@ -127,7 +127,7 @@ html {
     justify-self: end;
     margin-right: 20px;
     background-color: #F1E7D3;
-    width: min(430px, 60%);
+    width: min(630px, 60%);
     height: auto;
     min-height: 180px;
     padding: 20px 15px;
@@ -141,16 +141,16 @@ html {
     .option-page {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: min-content min-content;
-      row-gap: 8px;
-      column-gap: 8px;
+      row-gap: 16px;
+      column-gap: 16px;
       p {
-        font-size: clamp(1em, 1.1vw, 1.2em);
+        font-size: clamp(1em, 1.1vw, 1.7em);
         grid-column: 1 / -1;
         grid-row: 1;
         justify-self: center;
       }
       button {
-        font-size: clamp(0.9em, 1vw, 1.2em);
+        font-size: clamp(0.9em, 1vw, 1.7em);
         background-color: white;
         border: #046A38 1.5px solid;
         color: #030300;
@@ -171,7 +171,7 @@ html {
     #next-btn {
       background: #046A38;
       border: #030300 1.5px solid;
-      font-size: clamp(0.9em, 1vw, 1.1em);
+      font-size: clamp(0.9em, 1vw, 1.5em);
       color: white;
       padding: 10px 60px;
       margin-top: 10px;
@@ -198,7 +198,7 @@ html {
   z-index: 5;
   position: absolute;
   img {
-    height: clamp(150px, 25vh, 300px);
+    height: clamp(150px, 55vh, 460px);
   }
   #horace-1 {
     display: block;
@@ -216,7 +216,7 @@ html {
     opacity: 0;
     padding-left: clamp(60px, 12vw, 150px);
     transition: .6s ease all;
-    height: clamp(200px, 35vh, 430px) !important;
+    height: clamp(200px, 45vh, 460px) !important;
   }
   #horace-4 {
     display: none;
@@ -239,7 +239,7 @@ html {
     transition: all .5s ease;
     margin-top: -50px;
     img {
-      width: clamp(70px, 8vw, 110px);
+      width: clamp(70px, 6vw, 140px);
       margin-left: 20px;
       grid-column: 1;
       grid-row: 1;
@@ -366,6 +366,10 @@ html {
       min-height: 150px;
       padding: 15px 12px;
       row-gap: 10px;
+      .option-page {        
+        row-gap: 10px;
+        column-gap: 10px;
+      }
     }
   }
   .horace-cont {
