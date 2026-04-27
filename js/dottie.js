@@ -278,3 +278,55 @@ input.addEventListener('keydown', (e) => {
 btn.addEventListener('click', () => {
   handleSend();
 });
+
+const returnBtn = document.getElementById('return-to-adventure');
+
+window.addEventListener('load', async () => {
+    const incomingPrompt = localStorage.getItem('dottiePrompt');
+    
+    if (incomingPrompt) {
+        returnBtn.style.display = "block";
+        
+        // Hide the prompt from the user's view, but send it to the AI
+        // We'll treat it as a hidden user message to trigger her response
+        conversationHistory.push({ role: "user", content: incomingPrompt });
+        localStorage.removeItem('dottiePrompt'); // Clear it so it doesn't loop
+
+        // Manually trigger the handleSend logic without needing a click
+        // (Assuming you've refactored handleSend to not rely purely on input.value)
+        executeDottieResponse();
+    }
+});
+
+// Helper to trigger response without a manual user input
+async function executeDottieResponse() {
+  clearAllLayers();
+  document.querySelector('#thinking-state').classList.add('active');
+
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: conversationHistory })
+    });
+
+    const data = await response.json();
+    latestAudioBase64 = data.audio;
+
+    switchToPose('original');
+    startBlinking();
+
+    const latestBubble = appendMessage('ai', '');
+    await animateTextAndTalk(data.reply, latestBubble);
+
+    conversationHistory.push({ role: "assistant", content: data.reply });
+    pickRandomIdle();
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+returnBtn.addEventListener('click', () => {
+    localStorage.setItem('returningFromDottie', 'true');
+    window.location.href = 'text-adventure.html';
+});

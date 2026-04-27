@@ -179,6 +179,10 @@ The excitement disappears instantly.
             // { title: "A Scarf", desc: "Clothing Option", target: "melba_outfit" },
             // { title: "Grown-Up Outfit", desc: "Clothing Option", target: "melba_outfit" }
         ],
+        diaryEntry: true,
+        diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
+        dottieConvo: false,
+        // dottiePrompt: "Melba just got told she can't go to the wrestling matches. She's heartbroken. Can you comfort her and explain why her family is being so protective?",
         showNext: true,
         nextScene: "melba_grandma"
     },
@@ -225,9 +229,17 @@ function renderScene(sceneId) {
     
     nextBtn.onclick = () => {
         if (isTyping) {
-            skipTyping = true; // First click: Skip
+            skipTyping = true;
         } else {
-            renderScene(scene.nextScene); // Second click: Move on
+            // CHECK FOR DIARY OR DOTTIE HERE
+            if (scene.diaryEntry) {
+                showDiary(scene.diaryContent, scene.nextScene);
+            } else if (scene.dottieConvo) {
+                // Logic for Part 2 goes here
+                triggerDottieCheckin(scene.dottiePrompt, scene.nextScene);
+            } else {
+                renderScene(scene.nextScene);
+            }
         }
     };
 
@@ -269,6 +281,26 @@ startBtn.addEventListener('click', () => {
     }, 600); // Matches CSS transition time
 });
 
+const diaryOverlay = document.getElementById('diary-overlay');
+const diaryText = document.getElementById('diary-text-container');
+const closeDiaryBtn = document.getElementById('close-diary');
+
+function showDiary(content, nextScene) {
+    diaryText.textContent = content;
+    diaryOverlay.style.display = "flex"; // Ensure it's visible
+    // Wait a tiny bit then slide up
+    setTimeout(() => {
+        diaryOverlay.style.transform = "translateY(0)";
+    }, 10);
+
+    closeDiaryBtn.onclick = () => {
+        diaryOverlay.style.transform = "translateY(100%)";
+        setTimeout(() => {
+            renderScene(nextScene);
+        }, 600);
+    };
+}
+
 
 
 const options = document.querySelectorAll('.text-option');
@@ -287,4 +319,20 @@ options.forEach(button => {
             button.classList.add('selected');
         }
     });
+});
+
+function triggerDottieCheckin(prompt, nextScene) {
+    localStorage.setItem('dottiePrompt', prompt);
+    localStorage.setItem('returnScene', nextScene);
+    window.location.href = 'dottie.html';
+}
+
+// Check if we just returned from Dottie on page load
+window.addEventListener('load', () => {
+    const isReturning = localStorage.getItem('returningFromDottie');
+    if (isReturning) {
+        const target = localStorage.getItem('returnScene');
+        localStorage.removeItem('returningFromDottie');
+        renderScene(target);
+    }
 });
