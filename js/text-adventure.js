@@ -179,8 +179,8 @@ The excitement disappears instantly.
             // { title: "A Scarf", desc: "Clothing Option", target: "melba_outfit" },
             // { title: "Grown-Up Outfit", desc: "Clothing Option", target: "melba_outfit" }
         ],
-        diaryEntry: true,
-        diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
+        // diaryEntry: true,
+        // diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
         dottieConvo: true,
         dottiePrompt: "Melba just got told she can't go to the wrestling matches. She's heartbroken. What would you do in that scenario?",
         showNext: true,
