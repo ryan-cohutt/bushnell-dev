@@ -26,17 +26,44 @@ Who should Melba call?`,
         showNext: false,
     },
     "call_marsha": {
-        text: "Melba dials Marsha’s number. The phone rings twice. Marsha answers. Her voice sounds distant, music and laughter drowning her voice out. “Oh… hi, Melba.” Melba asks what she is doing tonight. Marsha hesitates. “Well… some people are over for dinner. Just a few of our friends.” Old friends. Friends she used to spend weekends with. She waits. But Marsha does not invite her.",
+        text: `Melba dials Marsha’s number. 
+The phone rings twice. Marsha answers. 
+Her voice sounds distant, music and laughter drowning her voice out. 
+“Oh… hi, Melba.” Melba asks what she is doing tonight. 
+Marsha hesitates. “Well… some people are over for dinner. Just a few of our friends.” 
+Old friends. Friends she used to spend weekends with. She waits. But Marsha does not invite her.`,
         bg: "visuals-updated/phone.png",
         options: [],
         showNext: true,
         nextScene: "call_cont"
     },
+    "call_vince": {
+        text: `Melba dials Vince’s number. 
+The phone rings. No answer. 
+Melba sighs. She imagines him out somewhere, laughing with friends. 
+She hopes she might see him later at the wrestling matches. 
+The thought lifts her mood slightly.`,
+        bg: "visuals-updated/phone.png",
+        options: [],
+        showNext: true,
+        nextScene: "phone_call"
+    },
+    "call_dad": {
+        text: `Melba dials her father’s number. 
+Her heart beats faster. The phone rings several times. 
+No answer. She remembers the argument from the day before. 
+Her father did not approve of her attending Central High. 
+The silence on the phone makes her chest feel heavy. 
+Melba slowly hangs up.`,
+        bg: "visuals-updated/phone.png",
+        options: [],
+        showNext: true,
+        nextScene: "phone_call"
+    },
     "call_cont": {
-        text: "“We’re afraid of being attacked with all the integration news going on with you. What if they bomb us to get back to you?” The silence stretches. “Well… I gotta go,” Marsha says quickly. The line clicks. Melba slowly hangs up. The rejection stings worse than she expected. Who should Melba call next?",
+        text: `“We’re afraid of being attacked with all the integration news going on with you. What if they bomb us to get back to you?” The silence stretches. “Well… I gotta go,” Marsha says quickly. The line clicks. Melba slowly hangs up. The rejection stings worse than she expected. Who should Melba call next?`,
         bg: "visuals-updated/phone.png",
         options: [
-            { title: "Vince", desc: "Melba's Friend", target: "call_vince" },
             { title: "Minnijean", desc: "Melba's New Friend", target: "call_minnijean" },
             { title: "Alice", desc: "Melba's Old Friend", target: "call_alice" }
         ],
@@ -44,7 +71,26 @@ Who should Melba call?`,
         // nextScene: ""
     },
     "call_alice": {
-        text: "Melba decides to try Alice, one of her old friends. There is no answer. Melba dials several other numbers. One after another. No answers. Later she realizes why. They are all at Marsha’s dinner party. Without her.",
+        text: `Melba decides to try Alice, one of her old friends. 
+There is no answer. Melba dials several other numbers. 
+One after another. No answers. Later she realizes why. 
+They are all at Marsha’s dinner party. Without her.`,
+        bg: "visuals-updated/phone.png",
+        options: [
+            // { title: "Vince", desc: "Melba's Friend", target: "call_vince" },
+            // { title: "Minnijean", desc: "Melba's New Friend", target: "call_minnijean" },
+            // { title: "Alice", desc: "Melba's Old Friend", target: "call_alice" }
+        ],
+        showNext: true,
+        nextScene: "melba_mom"
+    },
+    "call_minnijean": {
+        text: `Melba calls Minnijean.
+Minnijean picks up quickly. 
+“I don’t know where I really belong,” Minnijean sighs.
+Melba laughs softly. “I know exactly what you mean.” 
+Both girls talk about how strange life has become. 
+For a moment, Melba feels less alone. Someone else understands.`,
         bg: "visuals-updated/phone.png",
         options: [
             // { title: "Vince", desc: "Melba's Friend", target: "call_vince" },
@@ -55,7 +101,13 @@ Who should Melba call?`,
         nextScene: "melba_mom"
     },
     "melba_mom": {
-        text: "Melba’s mother walks into the room. She can see the sadness on Melba’s face. “Your friends are short-sighted,” she says gently. They can’t see the future. You have to do this thing because you are convinced it is right for you, not for what others will think.” Melba says “But I don’t want to lose all my friends”. “Let’s have a family date, right here at home.” Her mother brings popcorn. Soon they are playing games together at the table. For a little while, Melba forgets the newspaper headlines. ",
+        text: `Melba’s mother walks into the room. 
+She can see the sadness on Melba’s face. 
+“Your friends are short-sighted,” she says gently. They can’t see the future. 
+You have to do this thing because you are convinced it is right for you, not for what others will think.” Melba says “But I don’t want to lose all my friends”. 
+“Let’s have a family date, right here at home.” 
+Her mother brings popcorn. Soon they are playing games together at the table. 
+For a little while, Melba forgets the newspaper headlines. `,
         bg: "visuals-updated/living-room.png",
         options: [
             // { title: "Vince", desc: "Melba's Friend", target: "call_vince" },
@@ -63,7 +115,72 @@ Who should Melba call?`,
             // { title: "Alice", desc: "Melba's Old Friend", target: "call_alice" }
         ],
         showNext: true,
-        nextScene: "melba_mom"
+        nextScene: "melba_room"
+    },
+    "melba_room": {
+        text: `Later that evening, Melba sits on her bed. 
+Her thoughts drift to something exciting. 
+The wrestling matches. 
+She remembers the energy of the crowd. 
+The bright lights. 
+The thrill of sneaking glances at Vince.`,
+        bg: "visuals-updated/bedroom.png",
+        options: [
+            // { title: "Vince", desc: "Melba's Friend", target: "call_vince" },
+            // { title: "Minnijean", desc: "Melba's New Friend", target: "call_minnijean" },
+            // { title: "Alice", desc: "Melba's Old Friend", target: "call_alice" }
+        ],
+        showNext: true,
+        nextScene: "melba_disguise"
+    },
+    "melba_disguise": {
+        text: `She smiles. 
+Maybe no one would recognize her. 
+All she needs . . .
+is a good disguise.
+Help Melba Pick a Disguise`,
+        bg: "visuals-updated/bedroom.png",
+        options: [
+            { title: "Dark Glasses", desc: "Clothing Option", target: "melba_outfit" },
+            { title: "A Scarf", desc: "Clothing Option", target: "melba_outfit" },
+            { title: "Grown-Up Outfit", desc: "Clothing Option", target: "melba_outfit" }
+        ],
+        showNext: false,
+        // nextScene: "melba_disguise"
+    },
+    "melba_outfit": {
+        text: `Melba studies herself in the mirror. 
+Maybe this will work.
+She would never be recognized from any picture they might have seen of her in the news. 
+Maybe she can have one normal night. 
+Grandma enters the room. 
+She studies Melba carefully.
+Then she shakes her head. `,
+        bg: "visuals-updated/bedroom.png",
+        options: [
+            // { title: "Dark Glasses", desc: "Clothing Option", target: "melba_outfit" },
+            // { title: "A Scarf", desc: "Clothing Option", target: "melba_outfit" },
+            // { title: "Grown-Up Outfit", desc: "Clothing Option", target: "melba_outfit" }
+        ],
+        showNext: true,
+        nextScene: "melba_grandma"
+    },
+    "melba_grandma": {
+        text: `“Sorry child, you can’t go with me to the matches, not tonight.” 
+Melba’s heart sinks. 
+“It’s just too dangerous for you to go there amongst all those white people” 
+“You’re staying home, baby. It’s for your own good.” 
+The excitement disappears instantly. 
+“Everything’s being taken away from me.” Melba cries.
+ “I’ll never go back to Central!” `,
+        bg: "visuals-updated/bedroom.png",
+        options: [
+            // { title: "Dark Glasses", desc: "Clothing Option", target: "melba_outfit" },
+            // { title: "A Scarf", desc: "Clothing Option", target: "melba_outfit" },
+            // { title: "Grown-Up Outfit", desc: "Clothing Option", target: "melba_outfit" }
+        ],
+        showNext: true,
+        nextScene: "melba_grandma"
     },
 };
 
