@@ -181,8 +181,8 @@ The excitement disappears instantly.
         ],
         diaryEntry: true,
         diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
-        dottieConvo: false,
-        // dottiePrompt: "Melba just got told she can't go to the wrestling matches. She's heartbroken. Can you comfort her and explain why her family is being so protective?",
+        dottieConvo: true,
+        dottiePrompt: "Melba just got told she can't go to the wrestling matches. She's heartbroken. What would you do in that scenario?",
         showNext: true,
         nextScene: "melba_grandma"
     },
