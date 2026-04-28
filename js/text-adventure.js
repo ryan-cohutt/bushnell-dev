@@ -6,7 +6,7 @@ Integration might be stopped. 
 Maybe all of this suffering would be for nothing.
 Melba folds the paper slowly. The house feels unusually quiet. 
 `,
-        bg: "visuals-updated/living-room.png",
+        bg: "visuals-updated/living-room.jpg",
         options: [],
         showNext: true,
         nextScene: "phone_call"
@@ -17,7 +17,7 @@ She wants to talk to someone.
 She doesn't want to think about the news. She wants a normal day to herself. 
 The phone sits on the small table beside her. 
 Who should Melba call?`,
-        bg: "visuals-updated/phone.png",
+        bg: "visuals-updated/phone.jpg",
         options: [
             { title: "Vince", desc: "Melba's Friend", target: "call_vince" },
             { title: "Mr. Patillo", desc: "Melba's Dad", target: "call_dad" },
@@ -32,7 +32,7 @@ Her voice sounds distant, music and laughter drowning her voice out.
 “Oh… hi, Melba.” Melba asks what she is doing tonight. 
 Marsha hesitates. “Well… some people are over for dinner. Just a few of our friends.” 
 Old friends. Friends she used to spend weekends with. She waits. But Marsha does not invite her.`,
-        bg: "visuals-updated/phone.png",
+        bg: "visuals-updated/phone.jpg",
         options: [],
         showNext: true,
         nextScene: "call_cont"
@@ -43,7 +43,7 @@ The phone rings. No answer.
 Melba sighs. She imagines him out somewhere, laughing with friends. 
 She hopes she might see him later at the wrestling matches. 
 The thought lifts her mood slightly.`,
-        bg: "visuals-updated/phone.png",
+        bg: "visuals-updated/phone.jpg",
         options: [],
         showNext: true,
         nextScene: "phone_call"
@@ -55,14 +55,14 @@ No answer. She remembers the argument from the day before.
 Her father did not approve of her attending Central High. 
 The silence on the phone makes her chest feel heavy. 
 Melba slowly hangs up.`,
-        bg: "visuals-updated/phone.png",
+        bg: "visuals-updated/phone.jpg",
         options: [],
         showNext: true,
         nextScene: "phone_call"
     },
     "call_cont": {
         text: `“We’re afraid of being attacked with all the integration news going on with you. What if they bomb us to get back to you?” The silence stretches. “Well… I gotta go,” Marsha says quickly. The line clicks. Melba slowly hangs up. The rejection stings worse than she expected. Who should Melba call next?`,
-        bg: "visuals-updated/phone.png",
+        bg: "visuals-updated/phone.jpg",
         options: [
             { title: "Minnijean", desc: "Melba's New Friend", target: "call_minnijean" },
             { title: "Alice", desc: "Melba's Old Friend", target: "call_alice" }
@@ -75,7 +75,7 @@ Melba slowly hangs up.`,
 There is no answer. Melba dials several other numbers. 
 One after another. No answers. Later she realizes why. 
 They are all at Marsha’s dinner party. Without her.`,
-        bg: "visuals-updated/phone.png",
+        bg: "visuals-updated/phone.jpg",
         options: [
             // { title: "Vince", desc: "Melba's Friend", target: "call_vince" },
             // { title: "Minnijean", desc: "Melba's New Friend", target: "call_minnijean" },
@@ -91,7 +91,7 @@ Minnijean picks up quickly.
 Melba laughs softly. “I know exactly what you mean.” 
 Both girls talk about how strange life has become. 
 For a moment, Melba feels less alone. Someone else understands.`,
-        bg: "visuals-updated/phone.png",
+        bg: "visuals-updated/phone.jpg",
         options: [
             // { title: "Vince", desc: "Melba's Friend", target: "call_vince" },
             // { title: "Minnijean", desc: "Melba's New Friend", target: "call_minnijean" },
@@ -108,7 +108,7 @@ You have to do this thing because you are convinced it is right for you, not f
 “Let’s have a family date, right here at home.” 
 Her mother brings popcorn. Soon they are playing games together at the table. 
 For a little while, Melba forgets the newspaper headlines. `,
-        bg: "visuals-updated/living-room.png",
+        bg: "visuals-updated/living-room.jpg",
         options: [
             // { title: "Vince", desc: "Melba's Friend", target: "call_vince" },
             // { title: "Minnijean", desc: "Melba's New Friend", target: "call_minnijean" },
@@ -124,7 +124,7 @@ The wrestling matches.
 She remembers the energy of the crowd. 
 The bright lights. 
 The thrill of sneaking glances at Vince.`,
-        bg: "visuals-updated/bedroom.png",
+        bg: "visuals-updated/bedroom.jpg",
         options: [
             // { title: "Vince", desc: "Melba's Friend", target: "call_vince" },
             // { title: "Minnijean", desc: "Melba's New Friend", target: "call_minnijean" },
@@ -139,7 +139,7 @@ Maybe no one would recognize her.
 All she needs . . .
 is a good disguise.
 Help Melba Pick a Disguise`,
-        bg: "visuals-updated/bedroom.png",
+        bg: "visuals-updated/bedroom.jpg",
         options: [
             { title: "Dark Glasses", desc: "Clothing Option", target: "melba_outfit" },
             { title: "A Scarf", desc: "Clothing Option", target: "melba_outfit" },
@@ -156,7 +156,7 @@ Maybe she can have one normal night.
 Grandma enters the room. 
 She studies Melba carefully.
 Then she shakes her head. `,
-        bg: "visuals-updated/bedroom.png",
+        bg: "visuals-updated/bedroom.jpg",
         options: [
             // { title: "Dark Glasses", desc: "Clothing Option", target: "melba_outfit" },
             // { title: "A Scarf", desc: "Clothing Option", target: "melba_outfit" },
@@ -173,7 +173,7 @@ Melba’s heart sinks.
 The excitement disappears instantly. 
 “Everything’s being taken away from me.” Melba cries.
  “I’ll never go back to Central!” `,
-        bg: "visuals-updated/bedroom.png",
+        bg: "visuals-updated/bedroom.jpg",
         options: [
             // { title: "Dark Glasses", desc: "Clothing Option", target: "melba_outfit" },
             // { title: "A Scarf", desc: "Clothing Option", target: "melba_outfit" },
@@ -193,7 +193,7 @@ Friends avoiding her.
 The wrestling match cancelled.
 Everything feels unfair.
 Then someone taps her shoulder.`,
-        bg: "visuals-updated/church.png",
+        bg: "visuals-updated/church.jpg",
         options: [
             // { title: "Dark Glasses", desc: "Clothing Option", target: "melba_outfit" },
             // { title: "A Scarf", desc: "Clothing Option", target: "melba_outfit" },
@@ -214,7 +214,7 @@ Melba blinks in surprise.
 She nods. 
 For the first time all weekend, she smiles. 
 Service begins.`,
-        bg: "visuals-updated/church.png",
+        bg: "visuals-updated/church.jpg",
         options: [
             // { title: "Dark Glasses", desc: "Clothing Option", target: "melba_outfit" },
             // { title: "A Scarf", desc: "Clothing Option", target: "melba_outfit" },
@@ -235,7 +235,7 @@ For the students integrating the school.
 Melba feels the support of her community. 
 Her spirits begin to lift. 
 Who should Melba talk to after church? `,
-        bg: "visuals-updated/church.png",
+        bg: "visuals-updated/church.jpg",
         options: [
             { title: "Talk with Vince", desc: "", target: "church_vince" },
             { title: "Talk with Grandmother", desc: "", target: "church_grandma" },
@@ -259,7 +259,7 @@ She goes up to her grandmother’s friend.
 “It might hurt a little while, but when it stops we’re all gonna feel real good.” Another lady adds on.
 Melba beams at them.
 It feels good to have support.`,
-        bg: "visuals-updated/church.png",
+        bg: "visuals-updated/church.jpg",
         options: [
             // { title: "Talk with Vince", desc: "", target: "church_vince" },
             // { title: "Talkwith Grandmother", desc: "", target: "church_grandma" },
@@ -282,7 +282,7 @@ There were stories of people buying up weapons, which was all untrue.
 The elderly man said, some of the folks were dusting off rusty hardware.
 “Reasonable folks smell trouble. There’s too many strangers in town, too many people with Mississippi attitudes,” he continued.
 “Ain’t no way we’re out there buying hardware like the governor is saying. He’s a stone-faced liar.”`,
-        bg: "visuals-updated/church.png",
+        bg: "visuals-updated/church.jpg",
         options: [
             // { title: "Talk with Vince", desc: "", target: "church_vince" },
             // { title: "Talkwith Grandmother", desc: "", target: "church_grandma" },
@@ -306,7 +306,7 @@ Teachers, neighbors, Church members.
 They offer books. 
 They tutor the students with lessons, following a school-like schedule. 
 Help Melba stay on track with her studies `,
-        bg: "visuals-updated/classroom.png",
+        bg: "visuals-updated/classroom.jpg",
         options: [
             { title: "Take Mathematics Notes", desc: "", target: "math_notes" },
             { title: "Read Language Arts Textbook ", desc: "", target: "" },
@@ -330,7 +330,7 @@ The numbers begin to make sense. Focusing on math helps quiet her thoughts.
 For a moment, she is not thinking about protests or fear.
 Just logic.
 Just learning.`,
-        bg: "visuals-updated/classroom.png",
+        bg: "visuals-updated/classroom.jpg",
         options: [
             // { title: "Take Mathematics Notes", desc: "", target: "math_notes" },
             // { title: "Read Language Arts Textbook ", desc: "", target: "" },
@@ -349,7 +349,7 @@ Lessons. Breaks.
 Study time. It almost feels like school.
 But something is still missing.
 What should Melba do during her break?`,
-        bg: "visuals-updated/classroom.png",
+        bg: "visuals-updated/classroom.jpg",
         options: [
             { title: "Have Lunch and Rest", desc: "", target: "" },
             { title: "Continue Studying", desc: "", target: "" },
@@ -368,7 +368,7 @@ They share stories, jokes, and small moments of joy.
 Slowly, the group bonds together.
 They talked about their fears and hopes, what they missed at their old schools, what they wished would be resolved soon.
 While Melba regretted the friends she was losing, she cherished the growing ties with her new friends.`,
-        bg: "visuals-updated/classroom.png",
+        bg: "visuals-updated/classroom.jpg",
         options: [
             // { title: "Have Lunch and Rest", desc: "", target: "" },
             // { title: "Continue Studying", desc: "", target: "" },
@@ -390,7 +390,7 @@ Melba feels conflicted.
 She wants to tell the truth about how frightened she feels, but she knows that it can be used against her and stop integration entirely.
 She has been told she might have to testify in court someday.
 Every word matters.`,
-        bg: "visuals-updated/melba-house.png",
+        bg: "visuals-updated/melba-house.jpg",
         options: [
             // { title: "Have Lunch and Rest", desc: "", target: "" },
             // { title: "Continue Studying", desc: "", target: "" },
@@ -414,7 +414,7 @@ Not like this.
 Not with respect.
 In that moment, she feels something new.
 Equality.`,
-        bg: "visuals-updated/melba-house.png",
+        bg: "visuals-updated/melba-house.jpg",
         options: [
             // { title: "Have Lunch and Rest", desc: "", target: "" },
             // { title: "Continue Studying", desc: "", target: "" },
@@ -431,7 +431,7 @@ Equality.`,
         text: `She felt for the time, that they cared what she thought. They responded to her, looked her directly in her eyes, even looking at her with admiring eyes.
 She thought to herself, I might like to be a news reporter when I grow up.
 Melba felt hope.`,
-        bg: "visuals-updated/melba-house-night.png",
+        bg: "visuals-updated/melba-house-night.jpg",
         options: [
             // { title: "Have Lunch and Rest", desc: "", target: "" },
             // { title: "Continue Studying", desc: "", target: "" },
@@ -446,7 +446,7 @@ Melba felt hope.`,
     },
     "melba_home_4": {
         text: ``,
-        bg: "visuals-updated/melba-house-night.png",
+        bg: "visuals-updated/melba-house-night.jpg",
         options: [
             // { title: "Have Lunch and Rest", desc: "", target: "" },
             // { title: "Continue Studying", desc: "", target: "" },
