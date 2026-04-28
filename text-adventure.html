@@ -11,6 +11,34 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="settings-panel" class="settings-overlay">
+        <div class="content">
+            <h1 class="caprasimo">Settings</h1>
+            <div class="settings-tabs">
+                <div class="tab">
+                    <p class="caprasimo">LANGUAGE</p>
+                    <button class="salsa">English</button>
+                </div>
+                <div class="tab">
+                    <p class="caprasimo">AUDIO</p>
+                    <button class="salsa">Prefer Text to Speech</button>
+                    <button class="salsa">Prefer Text Only</button>
+                </div>
+                <div class="tab">
+                    <p class="caprasimo">VISUALS</p>
+                    <button class="salsa">Low Motion</button>
+                    <button class="salsa">High Contrast</button>
+                </div>
+                <div class="tab">
+                    <p class="caprasimo">TEXT</p>
+                    <button class="salsa">Text Speed  -  1  +</button>
+                    <button class="salsa">Font Size  -  1  +</button>
+                </div>
+                <button id="save-settings" class="caprasimo">SAVE</button>
+            </div>
+        </div>
+    </div>
+
     <div id="intro-overlay" class="intro-box active">
         <div class="intro-content">
             <img src="./visuals-updated/newspaper.png" alt="">
@@ -29,7 +57,7 @@
 
     <div class="adventure-cont" id="main-ui" style="opacity: 0; pointer-events: none;">
         <div class="icons">
-            <button class="settings"><img src="visuals-updated/settings.png"></button>
+            <button class="settings" id="settings-btn"><img src="visuals-updated/settings.png"></button>
             <a href="./dottie.html"><button class="dottie-icon"><img src="visuals-updated/smile-icon.png"></button></a>
         </div>
 

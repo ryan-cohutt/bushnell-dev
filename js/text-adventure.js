@@ -179,12 +179,285 @@ The excitement disappears instantly.
             // { title: "A Scarf", desc: "Clothing Option", target: "melba_outfit" },
             // { title: "Grown-Up Outfit", desc: "Clothing Option", target: "melba_outfit" }
         ],
+        diaryEntry: true,
+        diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
+        // dottieConvo: true,
+        // dottiePrompt: "Melba just got told she can't go to the wrestling matches. She's heartbroken. What would you do in that scenario?",
+        showNext: true,
+        nextScene: "sunday_church"
+    },
+    "sunday_church": {
+        text: `Melba sits quietly in the pew.
+Her heart still aches from the night before.
+Friends avoiding her.
+The wrestling match cancelled.
+Everything feels unfair.
+Then someone taps her shoulder.`,
+        bg: "visuals-updated/church.png",
+        options: [
+            // { title: "Dark Glasses", desc: "Clothing Option", target: "melba_outfit" },
+            // { title: "A Scarf", desc: "Clothing Option", target: "melba_outfit" },
+            // { title: "Grown-Up Outfit", desc: "Clothing Option", target: "melba_outfit" }
+        ],
+        // diaryEntry: true,
+        // diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
+        // dottieConvo: true,
+        // dottiePrompt: "Melba just got told she can't go to the wrestling matches. She's heartbroken. What would you do in that scenario?",
+        showNext: true,
+        nextScene: "sunday_church_2"
+    },
+    "sunday_church_2": {
+        text: `It is Vince. 
+He smiles nervously. 
+“Melba… will you be my girlfriend?” 
+Melba blinks in surprise. 
+She nods. 
+For the first time all weekend, she smiles. 
+Service begins.`,
+        bg: "visuals-updated/church.png",
+        options: [
+            // { title: "Dark Glasses", desc: "Clothing Option", target: "melba_outfit" },
+            // { title: "A Scarf", desc: "Clothing Option", target: "melba_outfit" },
+            // { title: "Grown-Up Outfit", desc: "Clothing Option", target: "melba_outfit" }
+        ],
+        // diaryEntry: true,
+        // diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
+        // dottieConvo: true,
+        // dottiePrompt: "Melba just got told she can't go to the wrestling matches. She's heartbroken. What would you do in that scenario?",
+        showNext: true,
+        nextScene: "sunday_church_3"
+    },
+    "sunday_church_3": {
+        text: `During the service, the congregation prays together. 
+Their voices rise through the church. 
+The prayers are for strength. For courage. 
+For the students integrating the school. 
+Melba feels the support of her community. 
+Her spirits begin to lift. 
+Who should Melba talk to after church? `,
+        bg: "visuals-updated/church.png",
+        options: [
+            { title: "Talk with Vince", desc: "", target: "church_vince" },
+            { title: "Talk with Grandmother", desc: "", target: "church_grandma" },
+            { title: "Talk with Grandmother's friends", desc: "", target: "church_grandma_friends" },
+            { title: "Listen to Elderly Man", desc: "", target: "church_edler" },
+            { title: "Talke to Mother's Co-workers", desc: "", target: "church_mother_friends" }
+        ],
+        // diaryEntry: true,
+        // diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
+        // dottieConvo: true,
+        // dottiePrompt: "Melba just got told she can't go to the wrestling matches. She's heartbroken. What would you do in that scenario?",
+        showNext: false,
+        nextScene: "sunday_church_3"
+    },
+    "church_grandma_friends": {
+        text: `Melba remembered what Grandma had said to her: “Church is the life’s blood of our folks’ community.”
+If she got into trouble and really needed protection these people would have her back.
+The network of phone calls initiated by Reverend Young would construct a web of safety.
+She goes up to her grandmother’s friend.
+“You’re doing the right thing, girl; we’re proud of you!”
+“It might hurt a little while, but when it stops we’re all gonna feel real good.” Another lady adds on.
+Melba beams at them.
+It feels good to have support.`,
+        bg: "visuals-updated/church.png",
+        options: [
+            // { title: "Talk with Vince", desc: "", target: "church_vince" },
+            // { title: "Talkwith Grandmother", desc: "", target: "church_grandma" },
+            // { title: "Talk with Grandmother's friends", desc: "", target: "church_grandma_friends" },
+            // { title: "Listen to Elderly Man", desc: "", target: "church_edler" },
+            // { title: "Talke to Mother's Co-workers", desc: "", target: "church_mother_friends" }
+        ],
+        // diaryEntry: true,
+        // diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
+        // dottieConvo: true,
+        // dottiePrompt: "Melba just got told she can't go to the wrestling matches. She's heartbroken. What would you do in that scenario?",
+        showNext: true,
+        nextScene: "sunday_church_3"
+    },
+    "church_edler": {
+        text: `Church was also the place where the community exchanged news.
+Melba walked over to an elderly man who was conversing with a group of people.
+They were recounting what they overheard in white ladies’ kitchens, on their other jobs, or maybe on a bus.
+There were stories of people buying up weapons, which was all untrue.
+The elderly man said, some of the folks were dusting off rusty hardware.
+“Reasonable folks smell trouble. There’s too many strangers in town, too many people with Mississippi attitudes,” he continued.
+“Ain’t no way we’re out there buying hardware like the governor is saying. He’s a stone-faced liar.”`,
+        bg: "visuals-updated/church.png",
+        options: [
+            // { title: "Talk with Vince", desc: "", target: "church_vince" },
+            // { title: "Talkwith Grandmother", desc: "", target: "church_grandma" },
+            // { title: "Talk with Grandmother's friends", desc: "", target: "church_grandma_friends" },
+            // { title: "Listen to Elderly Man", desc: "", target: "church_edler" },
+            // { title: "Talke to Mother's Co-workers", desc: "", target: "church_mother_friends" }
+        ],
         // diaryEntry: true,
         // diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
         dottieConvo: true,
-        dottiePrompt: "Melba just got told she can't go to the wrestling matches. She's heartbroken. What would you do in that scenario?",
+        dottiePrompt: "The player just experienced Melba being distanced from her friends she had before Central High. They saw that some people, like Marsha, decide to reject or distance her, but others, like some of the elders in the church, are very supportive of her mission. Discuss this with the player by saying the following starting prompt to them to start: 'While some people reject Melba, others support her deeply.You chose to call Marsha, Melba’s best friend.Do you think Marsha was in the right not to invite Melba?'",
         showNext: true,
-        nextScene: "melba_grandma"
+        nextScene: "classroom_1"
+    },
+    "classroom_1": {
+        text: `Melba and the other members of the Little Rock Nine wait anxiously. 
+They cannot attend school yet. 
+They feel stuck. Frustrated. 
+But members of their community step forward. 
+Teachers, neighbors, Church members. 
+They offer books. 
+They tutor the students with lessons, following a school-like schedule. 
+Help Melba stay on track with her studies `,
+        bg: "visuals-updated/classroom.png",
+        options: [
+            { title: "Take Mathematics Notes", desc: "", target: "math_notes" },
+            { title: "Read Language Arts Textbook ", desc: "", target: "" },
+            { title: "Help Friend with Assignment ", desc: "", target: "" }
+        ],
+        // diaryEntry: true,
+        // diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
+        // dottieConvo: true,
+        // dottiePrompt: "",
+        showNext: false,
+        nextScene: "sunday_church_3"
+    },
+    "math_notes": {
+        text: `The space feels different from school.
+Safer.
+But also uncertain. Melba feels the pressure building.
+If they fall behind now, it could affect their future.
+Melba leans over her notebook. 
+She carefully copies each problem and solution.
+The numbers begin to make sense. Focusing on math helps quiet her thoughts.
+For a moment, she is not thinking about protests or fear.
+Just logic.
+Just learning.`,
+        bg: "visuals-updated/classroom.png",
+        options: [
+            // { title: "Take Mathematics Notes", desc: "", target: "math_notes" },
+            // { title: "Read Language Arts Textbook ", desc: "", target: "" },
+            // { title: "Help Friend with Assignment ", desc: "", target: "" }
+        ],
+        // diaryEntry: true,
+        // diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
+        // dottieConvo: true,
+        // dottiePrompt: "",
+        showNext: true,
+        nextScene: "melba_break"
+    },
+    "melba_break": {
+        text: `Time passes.The group begins to settle into a rhythm.
+Lessons. Breaks. 
+Study time. It almost feels like school.
+But something is still missing.
+What should Melba do during her break?`,
+        bg: "visuals-updated/classroom.png",
+        options: [
+            { title: "Have Lunch and Rest", desc: "", target: "" },
+            { title: "Continue Studying", desc: "", target: "" },
+            { title: "Socialize with Group", desc: "", target: "melba_socialize" }
+        ],
+        // diaryEntry: true,
+        // diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
+        // dottieConvo: true,
+        // dottiePrompt: "",
+        showNext: false,
+        nextScene: "melba_break"
+    },
+    "melba_socialize": {
+        text: `Melba joins the others in conversation.
+They share stories, jokes, and small moments of joy.
+Slowly, the group bonds together.
+They talked about their fears and hopes, what they missed at their old schools, what they wished would be resolved soon.
+While Melba regretted the friends she was losing, she cherished the growing ties with her new friends.`,
+        bg: "visuals-updated/classroom.png",
+        options: [
+            // { title: "Have Lunch and Rest", desc: "", target: "" },
+            // { title: "Continue Studying", desc: "", target: "" },
+            // { title: "Socialize with Group", desc: "", target: "" }
+        ],
+        // diaryEntry: true,
+        // diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
+        // dottieConvo: true,
+        // dottiePrompt: "",
+        showNext: true,
+        nextScene: "melba_home"
+    },
+    "melba_home": {
+        text: `When Melba gets home from lessons one day, her mother talks to her about a call she received from NAACP representatives.
+Reporters are asking questions.
+They are to hold a press meeting at the Bates house along with Mr. Thurgood Marshall, the man who could fight for them.
+Her mother warns her: “Be careful what you say.”
+Melba feels conflicted.
+She wants to tell the truth about how frightened she feels, but she knows that it can be used against her and stop integration entirely.
+She has been told she might have to testify in court someday.
+Every word matters.`,
+        bg: "visuals-updated/melba-house.png",
+        options: [
+            // { title: "Have Lunch and Rest", desc: "", target: "" },
+            // { title: "Continue Studying", desc: "", target: "" },
+            // { title: "Socialize with Group", desc: "", target: "" }
+        ],
+        // diaryEntry: true,
+        // diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
+        // dottieConvo: true,
+        // dottiePrompt: "",
+        showNext: true,
+        nextScene: "melba_home_2"
+    },
+    "melba_home_2": {
+        text: `Melba goes to the press meeting with all of her new friends integrating into Central High with her.
+During the interview, a reporter addresses her politely.
+“Miss Pattillo, how do you feel about going back to Central High?”
+Melba freezes for a moment.
+Miss Pattillo.
+Nobody white has ever called her that before.
+Not like this.
+Not with respect.
+In that moment, she feels something new.
+Equality.`,
+        bg: "visuals-updated/melba-house.png",
+        options: [
+            // { title: "Have Lunch and Rest", desc: "", target: "" },
+            // { title: "Continue Studying", desc: "", target: "" },
+            // { title: "Socialize with Group", desc: "", target: "" }
+        ],
+        // diaryEntry: true,
+        // diaryContent: `Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.`,
+        // dottieConvo: true,
+        // dottiePrompt: "",
+        showNext: true,
+        nextScene: "melba_home_3"
+    },
+    "melba_home_3": {
+        text: `She felt for the time, that they cared what she thought. They responded to her, looked her directly in her eyes, even looking at her with admiring eyes.
+She thought to herself, I might like to be a news reporter when I grow up.
+Melba felt hope.`,
+        bg: "visuals-updated/melba-house-night.png",
+        options: [
+            // { title: "Have Lunch and Rest", desc: "", target: "" },
+            // { title: "Continue Studying", desc: "", target: "" },
+            // { title: "Socialize with Group", desc: "", target: "" }
+        ],
+        diaryEntry: true,
+        diaryContent: `Today is the first time in my life I felt equal to white people.I want more of that feeling. I’ll do whatever I have to do to keep feeling equal all the time.I apologize, God, for thinking you had taken away all my normal life.Maybe you’re just exchanging it for a new life.`,
+        // dottieConvo: true,
+        // dottiePrompt: "",
+        showNext: true,
+        nextScene: "melba_home_4"
+    },
+    "melba_home_4": {
+        text: ``,
+        bg: "visuals-updated/melba-house-night.png",
+        options: [
+            // { title: "Have Lunch and Rest", desc: "", target: "" },
+            // { title: "Continue Studying", desc: "", target: "" },
+            // { title: "Socialize with Group", desc: "", target: "" }
+        ],
+        // diaryEntry: true,
+        // diaryContent: `Today is the first time in my life I felt equal to white people.I want more of that feeling. I’ll do whatever I have to do to keep feeling equal all the time.I apologize, God, for thinking you had taken away all my normal life.Maybe you’re just exchanging it for a new life.`,
+        dottieConvo: true,
+        dottiePrompt: "The user has completed this section of Melba's story. Start the conversation with this paragraph, and discuss the questions and content within the paragraph with them to summarize the section and what they learned: 'Wow! At first, Melba started regretting her choice when she was losing friends and couldn’t go to the wrestling matches with her grandmother. She started feeling isolated. But, she ended up feeling much more supported towards the end of this chapter by her community and new friends. The Little Rock Nine risked everything just to walk through a front door because they believed that where you learn shouldn't be determined by what you look like. Looking at your own school or neighborhood today, where do you still see 'invisible' doors that are hard for some people to walk through? What is one small 'risk' you could take to help open that door for someone else?'",
+        showNext: true,
+        nextScene: "melba_home_4"
     },
 };
 
@@ -193,18 +466,25 @@ let isTyping = false;
 let skipTyping = false;
 
 // --- 1. TYPEWRITER WITH SKIP LOGIC ---
+let typewriterId = 0; // Global counter
+
 async function typeWriter(text, element, speed = 30) {
+    typewriterId++; // Increment every time a new text starts
+    const thisId = typewriterId; 
+    
     isTyping = true;
-    skipTyping = false; // Reset skip flag at start
+    skipTyping = false;
     element.textContent = "";
 
     for (let i = 0; i < text.length; i++) {
-        // If the user clicked a button while we were loop-typing
+        // KILL SWITCH: If a new typewriter has started, kill this old one
+        if (thisId !== typewriterId) return;
+
         if (skipTyping) {
-            element.textContent = text; // Instantly show full text
+            element.textContent = text;
             isTyping = false;
             skipTyping = false;
-            return; // Exit the loop
+            return;
         }
 
         element.textContent += text[i];
@@ -269,16 +549,17 @@ const introOverlay = document.getElementById('intro-overlay');
 const mainUI = document.getElementById('main-ui');
 
 startBtn.addEventListener('click', () => {
-    // Slide Down Intro
+    // Only run if the intro is actually active
+    if (!introOverlay.classList.contains('active')) return;
+
     introOverlay.style.transform = "translateY(100%)";
     
     setTimeout(() => {
         introOverlay.style.display = "none";
-        // Fade In Game
         mainUI.style.opacity = "1";
         mainUI.style.pointerEvents = "auto";
-        renderScene("start"); // Kick off the first scene
-    }, 600); // Matches CSS transition time
+        renderScene("start"); 
+    }, 600);
 });
 
 const diaryOverlay = document.getElementById('diary-overlay');
@@ -327,12 +608,44 @@ function triggerDottieCheckin(prompt, nextScene) {
     window.location.href = 'dottie.html';
 }
 
-// Check if we just returned from Dottie on page load
 window.addEventListener('load', () => {
     const isReturning = localStorage.getItem('returningFromDottie');
+    
     if (isReturning) {
+        // 1. Hide intro instantly so it never appears
+        introOverlay.style.display = "none";
+        introOverlay.classList.remove('active');
+        
+        // 2. Show the game UI
+        mainUI.style.opacity = "1";
+        mainUI.style.pointerEvents = "auto";
+        
+        // 3. Grab the target scene and clean up
         const target = localStorage.getItem('returnScene');
         localStorage.removeItem('returningFromDottie');
+        localStorage.removeItem('returnScene');
+        
+        // 4. Start the correct scene
         renderScene(target);
     }
+});
+
+// 3. Close Logic
+document.getElementById('close-popup').addEventListener('click', () => {
+    popup.classList.remove('active');
+});
+
+const saveBtn = document.querySelector('#save-settings');
+const panel = document.querySelector('#settings-panel');
+const openBtn = document.querySelector('#settings-btn');
+
+// Open
+openBtn.addEventListener('click', () => {
+  panel.classList.add('is-open');
+});
+
+// Save and Close
+saveBtn.addEventListener('click', () => {
+  // You can add your save logic here (e.g., localStorage)
+  panel.classList.remove('is-open');
 });

@@ -330,3 +330,23 @@ returnBtn.addEventListener('click', () => {
     localStorage.setItem('returningFromDottie', 'true');
     window.location.href = 'text-adventure.html';
 });
+
+// 3. Close Logic
+document.getElementById('close-popup').addEventListener('click', () => {
+    popup.classList.remove('active');
+});
+
+const saveBtn = document.querySelector('#save-settings');
+const panel = document.querySelector('#settings-panel');
+const openBtn = document.querySelector('#settings-btn');
+
+// Open
+openBtn.addEventListener('click', () => {
+  panel.classList.add('is-open');
+});
+
+// Save and Close
+saveBtn.addEventListener('click', () => {
+  // You can add your save logic here (e.g., localStorage)
+  panel.classList.remove('is-open');
+});

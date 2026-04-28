@@ -11,9 +11,37 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="settings-panel" class="settings-overlay">
+        <div class="content">
+            <h1 class="caprasimo">Settings</h1>
+            <div class="settings-tabs">
+                <div class="tab">
+                    <p class="caprasimo">LANGUAGE</p>
+                    <button class="salsa">English</button>
+                </div>
+                <div class="tab">
+                    <p class="caprasimo">AUDIO</p>
+                    <button class="salsa">Prefer Text to Speech</button>
+                    <button class="salsa">Prefer Text Only</button>
+                </div>
+                <div class="tab">
+                    <p class="caprasimo">VISUALS</p>
+                    <button class="salsa">Low Motion</button>
+                    <button class="salsa">High Contrast</button>
+                </div>
+                <div class="tab">
+                    <p class="caprasimo">TEXT</p>
+                    <button class="salsa">Text Speed  -  1  +</button>
+                    <button class="salsa">Font Size  -  1  +</button>
+                </div>
+                <button id="save-settings" class="caprasimo">SAVE</button>
+            </div>
+        </div>
+    </div>
+
     <div class="journal-cont">
         <div class="icons">
-            <button class="settings">
+            <button class="settings" id="settings-btn">
                 <img src="visuals-updated/settings.png" alt="">
             </button>
             <!-- <a href="./dottie.html"><button class="dottie-icon">

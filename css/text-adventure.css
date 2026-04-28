@@ -224,6 +224,7 @@ body {
         padding: 20px 90px;
         align-self: end;
         justify-self: center;
+        cursor: pointer;
       }
     }
 }
