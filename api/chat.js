@@ -21,12 +21,18 @@ export default async function handler(req, res) {
     const userMessage = messages[messages.length - 1].content;
     const webhookUrl = "https://hook.us2.make.com/4u89jegq8gsix4vv0jp6dh23ux1nhopw"; 
 
-    // We don't use 'await' here so the user doesn't have to wait for the sheet to update
+    const estTimestamp = new Date().toLocaleString("en-US", {
+      timeZone: "America/New_York",
+      hour12: true,
+      dateStyle: "short",
+      timeStyle: "short"
+    });
+
     fetch(webhookUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        timestamp: new Date().toLocaleString(),
+        timestamp: estTimestamp,
         user_msg: userMessage,
         dottie_msg: replyText
       })
