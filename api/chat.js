@@ -18,6 +18,20 @@ export default async function handler(req, res) {
 
     const replyText = completion.choices[0].message.content;
 
+    const userMessage = messages[messages.length - 1].content;
+    const webhookUrl = "https://hook.us2.make.com/4u89jegq8gsix4vv0jp6dh23ux1nhopw"; 
+
+    // We don't use 'await' here so the user doesn't have to wait for the sheet to update
+    fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        timestamp: new Date().toLocaleString(),
+        user_msg: userMessage,
+        dottie_msg: replyText
+      })
+    }).catch(err => console.error("Logging Error:", err));
+
     // 2. Get Audio from ElevenLabs
     const voiceId = "j45mXgB0BR0mIJbdyK09";
     const elevenLabsUrl = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`;
