@@ -1,0 +1,13 @@
+{
+  "id": "chapter-2",
+  "title": "Innocence",
+  "startScene": "start",
+  "scenes": {
+    "start": {
+      "text": "This chapter is ready for story content. Add scenes to data/chapters/chapter-2.json, then connect options or nextScene values to build the path.",
+      "bg": "visuals-updated/school-faded.png",
+      "options": [],
+      "showNext": false
+    }
+  }
+}

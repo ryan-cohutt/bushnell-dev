@@ -1,0 +1,295 @@
+{
+  "id": "chapter-1",
+  "title": "Regret",
+  "startScene": "start",
+  "scenes": {
+    "start": {
+      "text": "The words feel heavy. \nIntegration might be stopped. \nMaybe all of this suffering would be for nothing.\nMelba folds the paper slowly. The house feels unusually quiet. \n",
+      "bg": "visuals-updated/living-room.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "phone_call"
+    },
+    "phone_call": {
+      "text": "Melba sinks into the couch. \nShe wants to talk to someone. \nShe doesn't want to think about the news. She wants a normal day to herself. \nThe phone sits on the small table beside her. \nWho should Melba call?",
+      "bg": "visuals-updated/phone.jpg",
+      "options": [
+        {
+          "title": "Vince",
+          "desc": "Melba's Friend",
+          "target": "call_vince"
+        },
+        {
+          "title": "Mr. Patillo",
+          "desc": "Melba's Dad",
+          "target": "call_dad"
+        },
+        {
+          "title": "Marsha",
+          "desc": "Melba's Best Friend",
+          "target": "call_marsha"
+        }
+      ],
+      "showNext": false
+    },
+    "call_marsha": {
+      "text": "Melba dials Marsha’s number. \nThe phone rings twice. Marsha answers. \nHer voice sounds distant, music and laughter drowning her voice out. \n“Oh… hi, Melba.” Melba asks what she is doing tonight. \nMarsha hesitates. “Well… some people are over for dinner. Just a few of our friends.” \nOld friends. Friends she used to spend weekends with. She waits. But Marsha does not invite her.",
+      "bg": "visuals-updated/phone.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "call_cont"
+    },
+    "call_vince": {
+      "text": "Melba dials Vince’s number. \nThe phone rings. No answer. \nMelba sighs. She imagines him out somewhere, laughing with friends. \nShe hopes she might see him later at the wrestling matches. \nThe thought lifts her mood slightly.",
+      "bg": "visuals-updated/phone.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "phone_call"
+    },
+    "call_dad": {
+      "text": "Melba dials her father’s number. \nHer heart beats faster. The phone rings several times. \nNo answer. She remembers the argument from the day before. \nHer father did not approve of her attending Central High. \nThe silence on the phone makes her chest feel heavy. \nMelba slowly hangs up.",
+      "bg": "visuals-updated/phone.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "phone_call"
+    },
+    "call_cont": {
+      "text": "“We’re afraid of being attacked with all the integration news going on with you. What if they bomb us to get back to you?” The silence stretches. “Well… I gotta go,” Marsha says quickly. The line clicks. Melba slowly hangs up. The rejection stings worse than she expected. Who should Melba call next?",
+      "bg": "visuals-updated/phone.jpg",
+      "options": [
+        {
+          "title": "Minnijean",
+          "desc": "Melba's New Friend",
+          "target": "call_minnijean"
+        },
+        {
+          "title": "Alice",
+          "desc": "Melba's Old Friend",
+          "target": "call_alice"
+        }
+      ],
+      "showNext": false
+    },
+    "call_alice": {
+      "text": "Melba decides to try Alice, one of her old friends. \nThere is no answer. Melba dials several other numbers. \nOne after another. No answers. Later she realizes why. \nThey are all at Marsha’s dinner party. Without her.",
+      "bg": "visuals-updated/phone.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "melba_mom"
+    },
+    "call_minnijean": {
+      "text": "Melba calls Minnijean.\nMinnijean picks up quickly. \n“I don’t know where I really belong,” Minnijean sighs.\nMelba laughs softly. “I know exactly what you mean.” \nBoth girls talk about how strange life has become. \nFor a moment, Melba feels less alone. Someone else understands.",
+      "bg": "visuals-updated/phone.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "melba_mom"
+    },
+    "melba_mom": {
+      "text": "Melba’s mother walks into the room. \nShe can see the sadness on Melba’s face. \n“Your friends are short-sighted,” she says gently. They can’t see the future. \nYou have to do this thing because you are convinced it is right for you, not for what others will think.” Melba says “But I don’t want to lose all my friends”. \n“Let’s have a family date, right here at home.” \nHer mother brings popcorn. Soon they are playing games together at the table. \nFor a little while, Melba forgets the newspaper headlines. ",
+      "bg": "visuals-updated/living-room.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "melba_room"
+    },
+    "melba_room": {
+      "text": "Later that evening, Melba sits on her bed. \nHer thoughts drift to something exciting. \nThe wrestling matches. \nShe remembers the energy of the crowd. \nThe bright lights. \nThe thrill of sneaking glances at Vince.",
+      "bg": "visuals-updated/bedroom.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "melba_disguise"
+    },
+    "melba_disguise": {
+      "text": "She smiles. \nMaybe no one would recognize her. \nAll she needs . . .\nis a good disguise.\nHelp Melba Pick a Disguise",
+      "bg": "visuals-updated/bedroom.jpg",
+      "options": [
+        {
+          "title": "Dark Glasses",
+          "desc": "Clothing Option",
+          "target": "melba_outfit"
+        },
+        {
+          "title": "A Scarf",
+          "desc": "Clothing Option",
+          "target": "melba_outfit"
+        },
+        {
+          "title": "Grown-Up Outfit",
+          "desc": "Clothing Option",
+          "target": "melba_outfit"
+        }
+      ],
+      "showNext": false
+    },
+    "melba_outfit": {
+      "text": "Melba studies herself in the mirror. \nMaybe this will work.\nShe would never be recognized from any picture they might have seen of her in the news. \nMaybe she can have one normal night. \nGrandma enters the room. \nShe studies Melba carefully.\nThen she shakes her head. ",
+      "bg": "visuals-updated/bedroom.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "melba_grandma"
+    },
+    "melba_grandma": {
+      "text": "“Sorry child, you can’t go with me to the matches, not tonight.” \nMelba’s heart sinks. \n“It’s just too dangerous for you to go there amongst all those white people” \n“You’re staying home, baby. It’s for your own good.” \nThe excitement disappears instantly. \n“Everything’s being taken away from me.” Melba cries.\n “I’ll never go back to Central!” ",
+      "bg": "visuals-updated/bedroom.jpg",
+      "options": [],
+      "diaryEntry": true,
+      "diaryContent": "Freedom is not integration. Freedom is being able to go with Grandma to the wrestling matches.",
+      "showNext": true,
+      "nextScene": "sunday_church"
+    },
+    "sunday_church": {
+      "text": "Melba sits quietly in the pew.\nHer heart still aches from the night before.\nFriends avoiding her.\nThe wrestling match cancelled.\nEverything feels unfair.\nThen someone taps her shoulder.",
+      "bg": "visuals-updated/church.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "sunday_church_2"
+    },
+    "sunday_church_2": {
+      "text": "It is Vince. \nHe smiles nervously. \n“Melba… will you be my girlfriend?” \nMelba blinks in surprise. \nShe nods. \nFor the first time all weekend, she smiles. \nService begins.",
+      "bg": "visuals-updated/church.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "sunday_church_3"
+    },
+    "sunday_church_3": {
+      "text": "During the service, the congregation prays together. \nTheir voices rise through the church. \nThe prayers are for strength. For courage. \nFor the students integrating the school. \nMelba feels the support of her community. \nHer spirits begin to lift. \nWho should Melba talk to after church? ",
+      "bg": "visuals-updated/church.jpg",
+      "options": [
+        {
+          "title": "Talk with Vince",
+          "desc": "",
+          "target": "church_vince"
+        },
+        {
+          "title": "Talk with Grandmother",
+          "desc": "",
+          "target": "church_grandma"
+        },
+        {
+          "title": "Talk with Grandmother's friends",
+          "desc": "",
+          "target": "church_grandma_friends"
+        },
+        {
+          "title": "Listen to Elderly Man",
+          "desc": "",
+          "target": "church_edler"
+        },
+        {
+          "title": "Talke to Mother's Co-workers",
+          "desc": "",
+          "target": "church_mother_friends"
+        }
+      ],
+      "showNext": false,
+      "nextScene": "sunday_church_3"
+    },
+    "church_grandma_friends": {
+      "text": "Melba remembered what Grandma had said to her: “Church is the life’s blood of our folks’ community.”\nIf she got into trouble and really needed protection these people would have her back.\nThe network of phone calls initiated by Reverend Young would construct a web of safety.\nShe goes up to her grandmother’s friend.\n“You’re doing the right thing, girl; we’re proud of you!”\n“It might hurt a little while, but when it stops we’re all gonna feel real good.” Another lady adds on.\nMelba beams at them.\nIt feels good to have support.",
+      "bg": "visuals-updated/church.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "sunday_church_3"
+    },
+    "church_edler": {
+      "text": "Church was also the place where the community exchanged news.\nMelba walked over to an elderly man who was conversing with a group of people.\nThey were recounting what they overheard in white ladies’ kitchens, on their other jobs, or maybe on a bus.\nThere were stories of people buying up weapons, which was all untrue.\nThe elderly man said, some of the folks were dusting off rusty hardware.\n“Reasonable folks smell trouble. There’s too many strangers in town, too many people with Mississippi attitudes,” he continued.\n“Ain’t no way we’re out there buying hardware like the governor is saying. He’s a stone-faced liar.”",
+      "bg": "visuals-updated/church.jpg",
+      "options": [],
+      "dottieConvo": true,
+      "dottiePrompt": "The player just experienced Melba being distanced from her friends she had before Central High. They saw that some people, like Marsha, decide to reject or distance her, but others, like some of the elders in the church, are very supportive of her mission. Discuss this with the player by saying the following starting prompt to them to start: 'While some people reject Melba, others support her deeply.You chose to call Marsha, Melba’s best friend.Do you think Marsha was in the right not to invite Melba?'",
+      "showNext": true,
+      "nextScene": "classroom_1"
+    },
+    "classroom_1": {
+      "text": "Melba and the other members of the Little Rock Nine wait anxiously. \nThey cannot attend school yet. \nThey feel stuck. Frustrated. \nBut members of their community step forward. \nTeachers, neighbors, Church members. \nThey offer books. \nThey tutor the students with lessons, following a school-like schedule. \nHelp Melba stay on track with her studies ",
+      "bg": "visuals-updated/classroom.jpg",
+      "options": [
+        {
+          "title": "Take Mathematics Notes",
+          "desc": "",
+          "target": "math_notes"
+        },
+        {
+          "title": "Read Language Arts Textbook ",
+          "desc": "",
+          "target": ""
+        },
+        {
+          "title": "Help Friend with Assignment ",
+          "desc": "",
+          "target": ""
+        }
+      ],
+      "showNext": false,
+      "nextScene": "sunday_church_3"
+    },
+    "math_notes": {
+      "text": "The space feels different from school.\nSafer.\nBut also uncertain. Melba feels the pressure building.\nIf they fall behind now, it could affect their future.\nMelba leans over her notebook. \nShe carefully copies each problem and solution.\nThe numbers begin to make sense. Focusing on math helps quiet her thoughts.\nFor a moment, she is not thinking about protests or fear.\nJust logic.\nJust learning.",
+      "bg": "visuals-updated/classroom.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "melba_break"
+    },
+    "melba_break": {
+      "text": "Time passes.The group begins to settle into a rhythm.\nLessons. Breaks. \nStudy time. It almost feels like school.\nBut something is still missing.\nWhat should Melba do during her break?",
+      "bg": "visuals-updated/classroom.jpg",
+      "options": [
+        {
+          "title": "Have Lunch and Rest",
+          "desc": "",
+          "target": ""
+        },
+        {
+          "title": "Continue Studying",
+          "desc": "",
+          "target": ""
+        },
+        {
+          "title": "Socialize with Group",
+          "desc": "",
+          "target": "melba_socialize"
+        }
+      ],
+      "showNext": false,
+      "nextScene": "melba_break"
+    },
+    "melba_socialize": {
+      "text": "Melba joins the others in conversation.\nThey share stories, jokes, and small moments of joy.\nSlowly, the group bonds together.\nThey talked about their fears and hopes, what they missed at their old schools, what they wished would be resolved soon.\nWhile Melba regretted the friends she was losing, she cherished the growing ties with her new friends.",
+      "bg": "visuals-updated/classroom.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "melba_home"
+    },
+    "melba_home": {
+      "text": "When Melba gets home from lessons one day, her mother talks to her about a call she received from NAACP representatives.\nReporters are asking questions.\nThey are to hold a press meeting at the Bates house along with Mr. Thurgood Marshall, the man who could fight for them.\nHer mother warns her: “Be careful what you say.”\nMelba feels conflicted.\nShe wants to tell the truth about how frightened she feels, but she knows that it can be used against her and stop integration entirely.\nShe has been told she might have to testify in court someday.\nEvery word matters.",
+      "bg": "visuals-updated/melba-house.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "melba_home_2"
+    },
+    "melba_home_2": {
+      "text": "Melba goes to the press meeting with all of her new friends integrating into Central High with her.\nDuring the interview, a reporter addresses her politely.\n“Miss Pattillo, how do you feel about going back to Central High?”\nMelba freezes for a moment.\nMiss Pattillo.\nNobody white has ever called her that before.\nNot like this.\nNot with respect.\nIn that moment, she feels something new.\nEquality.",
+      "bg": "visuals-updated/melba-house.jpg",
+      "options": [],
+      "showNext": true,
+      "nextScene": "melba_home_3"
+    },
+    "melba_home_3": {
+      "text": "She felt for the time, that they cared what she thought. They responded to her, looked her directly in her eyes, even looking at her with admiring eyes.\nShe thought to herself, I might like to be a news reporter when I grow up.\nMelba felt hope.",
+      "bg": "visuals-updated/melba-house-night.jpg",
+      "options": [],
+      "diaryEntry": true,
+      "diaryContent": "Today is the first time in my life I felt equal to white people.I want more of that feeling. I’ll do whatever I have to do to keep feeling equal all the time.I apologize, God, for thinking you had taken away all my normal life.Maybe you’re just exchanging it for a new life.",
+      "showNext": true,
+      "nextScene": "melba_home_4"
+    },
+    "melba_home_4": {
+      "text": "",
+      "bg": "visuals-updated/melba-house-night.jpg",
+      "options": [],
+      "dottieConvo": true,
+      "dottiePrompt": "The user has completed this section of Melba's story. Start the conversation with this paragraph, and discuss the questions and content within the paragraph with them to summarize the section and what they learned: 'Wow! At first, Melba started regretting her choice when she was losing friends and couldn’t go to the wrestling matches with her grandmother. She started feeling isolated. But, she ended up feeling much more supported towards the end of this chapter by her community and new friends. The Little Rock Nine risked everything just to walk through a front door because they believed that where you learn shouldn't be determined by what you look like. Looking at your own school or neighborhood today, where do you still see 'invisible' doors that are hard for some people to walk through? What is one small 'risk' you could take to help open that door for someone else?'",
+      "showNext": true,
+      "nextScene": "melba_home_4"
+    }
+  }
+}
